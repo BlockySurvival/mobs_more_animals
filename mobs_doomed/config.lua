@@ -25,7 +25,7 @@ config.spawn_interval_badger = 30
 config.spawn_chance_badger = 300000
 config.spawn_active_object_count_badger = 2
 config.spawn_min_height_badger = 0
-config.spawn_max_height_badger = 1000
+config.spawn_max_height_badger = 5000
 
 
 config.spawn_enabled_elephant = true
@@ -40,7 +40,7 @@ config.spawn_interval_elephant = 30
 config.spawn_chance_elephant = 300000
 config.spawn_active_object_count_elephant = 2
 config.spawn_min_height_elephant = 0
-config.spawn_max_height_elephant = 1000
+config.spawn_max_height_elephant = 5000
 
 
 
@@ -58,7 +58,7 @@ config.spawn_interval_fox = 30
 config.spawn_chance_fox = 300000
 config.spawn_active_object_count_fox = 2
 config.spawn_min_height_fox = 0
-config.spawn_max_height_fox = 1000
+config.spawn_max_height_fox = 5000
 
 
 
@@ -75,7 +75,7 @@ config.spawn_interval_hedgehog = 30
 config.spawn_chance_hedgehog = 300000
 config.spawn_active_object_count_hedgehog = 2
 config.spawn_min_height_hedgehog = 0
-config.spawn_max_height_hedgehog = 1000
+config.spawn_max_height_hedgehog = 5000
 
 
 
@@ -88,7 +88,7 @@ config.spawn_interval_owl = 30
 config.spawn_chance_owl = 300000
 config.spawn_active_object_count_owl = 2
 config.spawn_min_height_owl = 0
-config.spawn_max_height_owl = 1000
+config.spawn_max_height_owl = 5000
 
 
 
@@ -101,7 +101,7 @@ config.spawn_interval_tortoise = 30
 config.spawn_chance_tortoise = 300000
 config.spawn_active_object_count_tortoise = 2
 config.spawn_min_height_tortoise = 0
-config.spawn_max_height_tortoise = 1000
+config.spawn_max_height_tortoise = 5000
 
 
 

@@ -21,6 +21,6 @@ config.spawn_interval_bat = 30
 config.spawn_chance_bat = 300000
 config.spawn_active_object_count_bat = 2
 config.spawn_min_height_bat = -25000
-config.spawn_max_height_bat = 1000
+config.spawn_max_height_bat = 5000
 
 global_mobs_animal_pack_mobs_bat = config

@@ -21,6 +21,6 @@ config.spawn_interval_jellyfish = 30
 config.spawn_chance_jellyfish = 300000
 config.spawn_active_object_count_jellyfish = 1
 config.spawn_min_height_jellyfish = -50
-config.spawn_max_height_jellyfish = 0
+config.spawn_max_height_jellyfish = -1
 
 global_mobs_animal_pack_mobs_jellyfish = config

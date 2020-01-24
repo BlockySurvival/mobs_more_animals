@@ -18,6 +18,6 @@ config.spawn_max_light_walrus = 20,
 config.spawn_min_light_walrus = 0,
 config.spawn_chance_walrus = 300000,
 config.spawn_active_object_count_walrus = 1,
-config.spawn_max_height_walrus = 1000
+config.spawn_max_height_walrus = 5000
 
 global_mobs_animal_pack_mobs_walrus = config

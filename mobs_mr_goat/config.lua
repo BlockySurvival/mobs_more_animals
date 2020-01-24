@@ -23,6 +23,6 @@ config.spawn_chance_goat = 300000
 config.spawn_interval_goat = nil
 config.spawn_active_object_count_goat = nil
 config.spawn_min_height_goat = water_level + 1
-config.spawn_max_height_goat = 1000
+config.spawn_max_height_goat = 5000
 
 global_mobs_animal_pack_mobs_mr_goat = config

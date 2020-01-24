@@ -21,6 +21,6 @@ config.spawn_interval_better_rat = 30
 config.spawn_chance_better_rat = 300000
 config.spawn_active_object_count_better_rat = 2
 config.spawn_min_height_better_rat = -25000
-config.spawn_max_height_better_rat = 1000
+config.spawn_max_height_better_rat = 5000
 
 global_mobs_animal_pack_mobs_better_rat = config

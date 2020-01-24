@@ -66,7 +66,7 @@ mobs:register_mob("mobs_walrus:walrus", {
 	replace_rate = 50,
 	replace_what = {"group:flora"},
 	replace_with = "air",
-	fly = true,
+	fly = false,
 	fly_in = "default:water_source",
 })
 if global_mobs_animal_pack_mobs_walrus.spawn_enabled_walrus then

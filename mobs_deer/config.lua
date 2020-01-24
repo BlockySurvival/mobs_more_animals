@@ -27,6 +27,6 @@ config.spawn_chance_deer = 300000
 config.spawn_interval_deer = nil
 config.spawn_active_object_count_deer = nil
 config.spawn_min_height_deer = water_level + 1
-config.spawn_max_height_deer = 1000
+config.spawn_max_height_deer = 5000
 
 global_mobs_animal_pack_mobs_deer = config

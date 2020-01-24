@@ -28,6 +28,6 @@ config.spawn_chance_wolf = 300000
 config.spawn_interval_wolf = nil
 config.spawn_active_object_count_wolf = nil
 config.spawn_min_height_wolf = water_level - 5
-config.spawn_max_height_wolf = 1000
+config.spawn_max_height_wolf = 5000
 
 global_mobs_animal_pack_mobs_wolf = config

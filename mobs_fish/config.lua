@@ -26,7 +26,7 @@ config.spawn_max_light_clownfish = 20
 config.spawn_interval_clownfish = 30
 config.spawn_chance_clownfish = spawn_chance_fish
 config.spawn_active_object_count_clownfish = 1
-config.spawn_min_height_clownfish = -31000
+config.spawn_min_height_clownfish = -50
 config.spawn_max_height_clownfish = water_level - 1
 
 config.spawn_enabled_tropical = true
@@ -37,7 +37,7 @@ config.spawn_max_light_tropical = 20
 config.spawn_interval_tropical = 30
 config.spawn_chance_tropical = spawn_chance_fish
 config.spawn_active_object_count_tropical = 1
-config.spawn_min_height_tropical = -31000
+config.spawn_min_height_tropical = -50
 config.spawn_max_height_tropical = water_level - 1
 
 global_mobs_animal_pack_mobs_fish = config

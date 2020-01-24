@@ -23,6 +23,6 @@ config.spawn_chance_giraffe = 300000
 config.spawn_interval_giraffe = nil
 config.spawn_active_object_count_giraffe = nil
 config.spawn_min_height_giraffe = water_level + 1
-config.spawn_max_height_giraffe = 1000
+config.spawn_max_height_giraffe = 5000
 
 global_mobs_animal_pack_mobs_giraffe = config
