@@ -58,10 +58,6 @@ mobs:register_mob("mobs_doomed:elephant", {
 
 mobs:register_egg("mobs_doomed:elephant", "Elephant", "default_dry_grass.png", 1)
 
-mobs:spawn_specific("mobs_doomed:elephant",
-					{
-						"default:dirt_with_dry_grass",
-						"default:desert_sand"
-					},
-					{"air"},
-                    10, 14, 30, 300000, 2, 0, 1000, true)
+if global_mobs_animal_pack_mobs_doomed.spawn_enabled_elephant then
+mobs:spawn_specific("mobs_doomed:elephant", global_mobs_animal_pack_mobs_doomed.spawn_on_elephant, global_mobs_animal_pack_mobs_doomed.spawn_near_elephant, global_mobs_animal_pack_mobs_doomed.spawn_min_light_elephant, global_mobs_animal_pack_mobs_doomed.spawn_max_light_elephant, global_mobs_animal_pack_mobs_doomed.spawn_interval_elephant, global_mobs_animal_pack_mobs_doomed.spawn_chance_elephant, global_mobs_animal_pack_mobs_doomed.spawn_active_object_count_elephant, global_mobs_animal_pack_mobs_doomed.spawn_min_height_elephant, global_mobs_animal_pack_mobs_doomed.spawn_max_height_elephant, true)
+end

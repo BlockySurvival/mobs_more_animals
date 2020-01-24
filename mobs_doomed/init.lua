@@ -1,5 +1,7 @@
 mobs_doomed = {}
 
+dofile(minetest.get_modpath("mobs_doomed") .. "/config.lua") -- Oversword
+
 -- Table cloning to reduce code repetition
 mobs_doomed.deepclone = function(t) -- deep-copy a table -- from https://gist.github.com/MihailJP/3931841
 	if type(t) ~= "table" then return t end

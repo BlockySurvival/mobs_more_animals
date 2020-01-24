@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_turtles") .. "/config.lua") -- Oversword
+
 local l_colors = {
 	"#604000:175",	--brown
 	"#604000:100",	--brown2
@@ -21,7 +23,6 @@ local l_anims = {
 	hide_start = 95,	hide_end = 100
 }
 local l_model			= "mobf_turtle.x"
-local l_spawn_chance	= 300000
 
 -- land turtle
 mobs:register_mob("mobs_turtles:turtle", {
@@ -93,11 +94,11 @@ mobs:register_mob("mobs_turtles:turtle", {
 		minetest.after(5, function() self.state = "stand" end)
 	end
 })
+
+if global_mobs_animal_pack_mobs_turtles.spawn_enabled_turtle then
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_turtles:turtle",
-	{"default:dirt_with_grass","default:jungle_grass","default:sand","default:desert_sand"},
-	{"default:dirt_with_grass","default:jungle_grass","default:sand","default:desert_sand","default:papyrus","default:cactus","dryplants:juncus","dryplants:reedmace"},
-	5, 20, 30, l_spawn_chance, 1, 1, 31000)
+mobs:spawn_specific("mobs_turtles:turtle", global_mobs_animal_pack_mobs_turtles.spawn_on_turtle, global_mobs_animal_pack_mobs_turtles.spawn_near_turtle, global_mobs_animal_pack_mobs_turtles.spawn_min_light_turtle, global_mobs_animal_pack_mobs_turtles.spawn_max_light_turtle, global_mobs_animal_pack_mobs_turtles.spawn_interval_turtle, global_mobs_animal_pack_mobs_turtles.spawn_chance_turtle, global_mobs_animal_pack_mobs_turtles.spawn_active_object_count_turtle, global_mobs_animal_pack_mobs_turtles.spawn_min_height_turtle, global_mobs_animal_pack_mobs_turtles.spawn_max_height_turtle)
+end
 mobs:register_egg("mobs_turtles:turtle", "Turtle", "default_grass.png", 1)
 
 -- sea turtle
@@ -138,9 +139,8 @@ mobs:register_mob("mobs_turtles:seaturtle", {
 		if mobs:capture_mob(self, clicker, 60, 80, 100, false, nil) then return end
 	end
 })
+if global_mobs_animal_pack_mobs_turtles.spawn_enabled_seaturtle then
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_turtles:seaturtle",
-	{"default:water_flowing","default:water_source"},
-	{"default:water_flowing","default:water_source","group:seaplants","seawrecks:woodship","seawrecks:uboot"},
-	5, 20, 30, l_spawn_chance, 1, -31000, 0)
+mobs:spawn_specific("mobs_turtles:seaturtle", global_mobs_animal_pack_mobs_turtles.spawn_on_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_near_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_min_light_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_max_light_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_interval_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_chance_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_active_object_count_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_min_height_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_max_height_seaturtle)
+end
 mobs:register_egg("mobs_turtles:seaturtle", "Sea Turtle", "default_water.png", 1)

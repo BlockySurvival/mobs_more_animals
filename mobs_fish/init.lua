@@ -1,12 +1,10 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_fish") .. "/config.lua") -- Oversword
+
 -- local variables
-local l_spawn_in          = {"default:water_source", "default:water_flowing", "default:river_water_source", "default:river_water_flowing"}
-local l_spawn_near        = {"default:sand","default:dirt","group:seaplants","group:seacoral"}
-local l_spawn_chance      = 100000
 local l_cc_hand           = 25
 local l_cc_net            = 80
-local l_water_level       = minetest.settings:get("water_level") - 1
 local l_anims             = {
 	speed_normal = 24,		speed_run = 24,
 	stand_start = 1,		stand_end = 80,
@@ -56,8 +54,10 @@ mobs:register_mob("mobs_fish:clownfish", {
 		mobs:capture_mob(self, clicker, l_cc_hand, l_cc_net, 0, true, "mobs_fish:clownfish")
 	end
 })
+if global_mobs_animal_pack_mobs_fish.spawn_enabled_clownfish then
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_fish:clownfish", l_spawn_in, l_spawn_near, 5, 20, 30, l_spawn_chance, 1, -31000, l_water_level)
+mobs:spawn_specific("mobs_fish:clownfish", global_mobs_animal_pack_mobs_fish.spawn_on_clownfish, global_mobs_animal_pack_mobs_fish.spawn_near_clownfish, global_mobs_animal_pack_mobs_fish.spawn_min_light_clownfish, global_mobs_animal_pack_mobs_fish.spawn_max_light_clownfish, global_mobs_animal_pack_mobs_fish.spawn_interval_clownfish, global_mobs_animal_pack_mobs_fish.spawn_chance_clownfish, global_mobs_animal_pack_mobs_fish.spawn_active_object_count_clownfish, global_mobs_animal_pack_mobs_fish.spawn_min_height_clownfish, global_mobs_animal_pack_mobs_fish.spawn_max_height_clownfish)
+end
 mobs:register_egg("mobs_fish:clownfish", "Clownfish", "animal_clownfish_clownfish_item.png", 0)
 
 -- Tropical fish
@@ -88,6 +88,8 @@ mobs:register_mob("mobs_fish:tropical", {
 		mobs:capture_mob(self, clicker, l_cc_hand, l_cc_net, 0, true, "mobs_fish:tropical")
 	end
 })
+if global_mobs_animal_pack_mobs_fish.spawn_enabled_tropical then
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_fish:tropical", l_spawn_in, l_spawn_near, 5, 20, 30, l_spawn_chance, 1, -31000, l_water_level)
+mobs:spawn_specific("mobs_fish:tropical", global_mobs_animal_pack_mobs_fish.spawn_on_tropical, global_mobs_animal_pack_mobs_fish.spawn_near_tropical, global_mobs_animal_pack_mobs_fish.spawn_min_light_tropical, global_mobs_animal_pack_mobs_fish.spawn_max_light_tropical, global_mobs_animal_pack_mobs_fish.spawn_interval_tropical, global_mobs_animal_pack_mobs_fish.spawn_chance_tropical, global_mobs_animal_pack_mobs_fish.spawn_active_object_count_tropical, global_mobs_animal_pack_mobs_fish.spawn_min_height_tropical, global_mobs_animal_pack_mobs_fish.spawn_max_height_tropical)
+end
 mobs:register_egg("mobs_fish:tropical", "Tropical fish", "animal_fish_blue_white_fish_blue_white_item.png", 0)

@@ -64,11 +64,6 @@ mobs:register_mob("mobs_doomed:badger", {
 
 mobs:register_egg("mobs_doomed:badger", "Badger", "default_obsidian.png", 1)
 
-mobs:spawn_specific("mobs_doomed:badger",
-				    {
-						"default:dirt_with_grass",
-						"default:dirt",
-						"default:dirt_with_coniferous_litter"
-					},
-				    {"air"},
-                    0, 14, 30, 300000, 2, 0, 1000, nil)
+if global_mobs_animal_pack_mobs_doomed.spawn_enabled_badger then
+mobs:spawn_specific("mobs_doomed:badger", global_mobs_animal_pack_mobs_doomed.spawn_nodes_badger, global_mobs_animal_pack_mobs_doomed.spawn_near_badger, global_mobs_animal_pack_mobs_doomed.spawn_min_light_badger, global_mobs_animal_pack_mobs_doomed.spawn_max_light_badger, global_mobs_animal_pack_mobs_doomed.spawn_interval_badger, global_mobs_animal_pack_mobs_doomed.spawn_chance_badger, global_mobs_animal_pack_mobs_doomed.spawn_active_object_count_badger, global_mobs_animal_pack_mobs_doomed.spawn_min_height_badger, global_mobs_animal_pack_mobs_doomed.spawn_max_height_badger, nil)
+end

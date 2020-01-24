@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_birds") .. "/config.lua") -- Oversword
+
 -- local variables
 local l_skins_gull = {
 	{"animal_gull_mesh.png"},
@@ -26,11 +28,6 @@ local l_thrush_model		= "mobs_birds_thrush.b3d"
 local l_egg_texture			= "default_cloud.png"
 local l_capture_chance_h	= 5
 local l_capture_chance_n	= 60
-local l_spawn_in			= {"air"}
-local l_spawn_near_gull		= {"default:water_source", "default:water_flowing"}
-local l_spawn_near_bird		= {"default:leaves", "default:pine_needles", "default:jungleleaves", "default:cactus"}
-local l_spawn_chance_gull	= 240000
-local l_spawn_chance_bird	= 360000
 
 -- gulls
 mobs:register_mob("mobs_birds:gull", {
@@ -62,8 +59,10 @@ mobs:register_mob("mobs_birds:gull", {
 		{name="mobs:chicken_feather", chance=1, min=0, max=2}
 	},
 })
+if global_mobs_animal_pack_mobs_birds.spawn_enabled_gull then
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_birds:gull", l_spawn_in, l_spawn_near_gull, 5, 20, 30, l_spawn_chance_gull, 1, 0, 5000)
+mobs:spawn_specific("mobs_birds:gull", global_mobs_animal_pack_mobs_birds.spawn_on_gull, global_mobs_animal_pack_mobs_birds.spawn_near_gull, global_mobs_animal_pack_mobs_birds.spawn_min_light_gull, global_mobs_animal_pack_mobs_birds.spawn_max_light_gull, global_mobs_animal_pack_mobs_birds.spawn_interval_gull, global_mobs_animal_pack_mobs_birds.spawn_chance_gull, global_mobs_animal_pack_mobs_birds.spawn_active_object_count_gull, global_mobs_animal_pack_mobs_birds.spawn_min_height_gull, global_mobs_animal_pack_mobs_birds.spawn_max_height_gull)
+end
 mobs:register_egg("mobs_birds:gull", "Gull", l_egg_texture, 1)
 
 -- large birds
@@ -97,8 +96,10 @@ mobs:register_mob("mobs_birds:bird_lg", {
 		{name="mobs:chicken_feather", chance=1, min=0, max=2}
 	},
 })
+if global_mobs_animal_pack_mobs_birds.spawn_enabled_bird_lg then
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_birds:bird_lg", l_spawn_in, l_spawn_near_bird, 5, 20, 30, l_spawn_chance_bird, 1, 0, 5000)
+mobs:spawn_specific("mobs_birds:bird_lg", global_mobs_animal_pack_mobs_birds.spawn_on_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_near_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_min_light_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_max_light_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_interval_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_chance_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_active_object_count_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_min_height_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_max_height_bird_lg)
+end
 mobs:register_egg("mobs_birds:bird_lg", "Large bird", l_egg_texture, 1)
 
 -- small birds
@@ -132,6 +133,8 @@ mobs:register_mob("mobs_birds:bird_sm", {
 		{name="mobs:chicken_feather", chance=1, min=0, max=1}
 	},
 })
+if global_mobs_animal_pack_mobs_birds.spawn_enabled_bird_sm then
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_birds:bird_sm", l_spawn_in, l_spawn_near_bird, 5, 20, 30, l_spawn_chance_bird, 1, 0, 5000)
+mobs:spawn_specific("mobs_birds:bird_sm", global_mobs_animal_pack_mobs_birds.spawn_on_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_near_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_min_light_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_max_light_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_interval_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_chance_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_active_object_count_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_min_height_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_max_height_bird_sm)
+end
 mobs:register_egg("mobs_birds:bird_sm", "Small bird", l_egg_texture, 1)

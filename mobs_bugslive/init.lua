@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_bugslive") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_bugslive:bug", {
 	type = "animal",
 	visual = "mesh",
@@ -63,18 +65,8 @@ mobs:register_mob("mobs_bugslive:bug", {
 	end
 })
 
+if global_mobs_animal_pack_mobs_bugslive.spawn_enabled_bug then
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_bugslive:bug",
-	{
-		"default:dirt",
-		"default:dirt_with_grass",
-		"default:dirt_with_coniferous_litter",
-		"default:dirt_with_dry_grass",
-		"default:dirt_with_rainforest_litter",
-		"default:stone",
-		"ethereal:green_dirt_top"
-	},
-	{"air", "default:water_source", "default:water_flowing", "default:river_water_source", "default:river_water_flowing"},
-	0, 15, 30, 300000, 2, -25000, 1000
-)
+mobs:spawn_specific("mobs_bugslive:bug", global_mobs_animal_pack_mobs_bugslive.spawn_on_bug, global_mobs_animal_pack_mobs_bugslive.spawn_near_bug, global_mobs_animal_pack_mobs_bugslive.spawn_min_light_bug, global_mobs_animal_pack_mobs_bugslive.spawn_max_light_bug, global_mobs_animal_pack_mobs_bugslive.spawn_interval_bug, global_mobs_animal_pack_mobs_bugslive.spawn_chance_bug, global_mobs_animal_pack_mobs_bugslive.spawn_active_object_count_bug, global_mobs_animal_pack_mobs_bugslive.spawn_min_height_bug, global_mobs_animal_pack_mobs_bugslive.spawn_max_height_bug)
+end
 mobs:register_egg("mobs_bugslive:bug", "Bug", "inv_bug.png", 0)

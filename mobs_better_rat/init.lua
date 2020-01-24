@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_better_rat") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_better_rat:rat", {
 	type = "animal",
 	visual = "mesh",
@@ -60,10 +62,8 @@ mobs:register_mob("mobs_better_rat:rat", {
 	end
 })
 
+if global_mobs_animal_pack_mobs_better_rat.spawn_enabled_better_rat then
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_better_rat:rat",
-	{"default:stone"},
-	{"air"},
-	0, 14, 30, 300000, 2, -25000, 1000
-)
+mobs:spawn_specific("mobs_better_rat:rat", global_mobs_animal_pack_mobs_better_rat.spawn_on_better_rat, global_mobs_animal_pack_mobs_better_rat.spawn_near_better_rat, global_mobs_animal_pack_mobs_better_rat.spawn_min_light_better_rat, global_mobs_animal_pack_mobs_better_rat.spawn_max_light_better_rat, global_mobs_animal_pack_mobs_better_rat.spawn_interval_better_rat, global_mobs_animal_pack_mobs_better_rat.spawn_chance_better_rat, global_mobs_animal_pack_mobs_better_rat.spawn_active_object_count_better_rat, global_mobs_animal_pack_mobs_better_rat.spawn_min_height_better_rat, global_mobs_animal_pack_mobs_better_rat.spawn_max_height_better_rat)
+end
 mobs:register_egg("mobs_better_rat:rat", "Mouse", "wool_brown.png", 1)

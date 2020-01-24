@@ -47,7 +47,6 @@ mobs:register_mob("mobs_doomed:owl", {
 
 mobs:register_egg("mobs_doomed:owl", "Owl", "default_tree.png", 1)
 
-mobs:spawn_specific("mobs_doomed:owl",
-					{"group:leaves"},
-					{"air"},
-                    0, 14, 30, 300000, 2, 0, 1000, false)
+if global_mobs_animal_pack_mobs_doomed.spawn_enabled_owl then
+mobs:spawn_specific("mobs_doomed:owl", global_mobs_animal_pack_mobs_doomed.spawn_on_owl, global_mobs_animal_pack_mobs_doomed.spawn_near_owl, global_mobs_animal_pack_mobs_doomed.spawn_min_light_owl, global_mobs_animal_pack_mobs_doomed.spawn_max_light_owl, global_mobs_animal_pack_mobs_doomed.spawn_interval_owl, global_mobs_animal_pack_mobs_doomed.spawn_chance_owl, global_mobs_animal_pack_mobs_doomed.spawn_active_object_count_owl, global_mobs_animal_pack_mobs_doomed.spawn_min_height_owl, global_mobs_animal_pack_mobs_doomed.spawn_max_height_owl, false)
+end

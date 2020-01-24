@@ -1,12 +1,12 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_bat") .. "/config.lua") -- Oversword
+
 -- local variables
 local l_skins = {
 	{"animal_bat.png"},
 	{"animal_bat.png^[colorize:black:150"}
 }
-local l_spawnnear	= {"default:stone"}
-local l_spawnchance	= 300000
 
 mobs:register_mob("mobs_bat:bat", {
 	type = "animal",
@@ -51,6 +51,8 @@ mobs:register_mob("mobs_bat:bat", {
 	},
 })
 
+if global_mobs_animal_pack_mobs_bat.spawn_enabled_bat then
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_bat:bat", {"air"}, l_spawnnear, 0, 6, 30, l_spawnchance, 2, -25000, 1000)
+mobs:spawn_specific("mobs_bat:bat",  global_mobs_animal_pack_mobs_bat.spawn_on_bat, global_mobs_animal_pack_mobs_bat.spawn_near_bat, global_mobs_animal_pack_mobs_bat.spawn_min_light_bat, global_mobs_animal_pack_mobs_bat.spawn_max_light_bat, global_mobs_animal_pack_mobs_bat.spawn_interval_bat, global_mobs_animal_pack_mobs_bat.spawn_chance_bat, global_mobs_animal_pack_mobs_bat.spawn_active_object_count_bat, global_mobs_animal_pack_mobs_bat.spawn_min_height_bat, global_mobs_animal_pack_mobs_bat.spawn_max_height_bat)
+end
 mobs:register_egg("mobs_bat:bat", "Bat", "animal_bat_inv.png", 0)

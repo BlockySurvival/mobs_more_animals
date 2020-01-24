@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_snowman") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_snowman:snowman", {
 	type = "animal",
 	lifetimer = 0,  -- doesn't despawn

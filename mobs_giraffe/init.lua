@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_giraffe") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_giraffe:jeraf", {
 	type = "animal",
 	visual = "mesh",
@@ -63,19 +65,19 @@ mobs:register_mob("mobs_giraffe:jeraf", {
 	end
 })
 
-local l_spawn_elevation_min = minetest.setting_get("water_level")
-if l_spawn_elevation_min then
-	l_spawn_elevation_min = l_spawn_elevation_min + 1
-else
-	l_spawn_elevation_min = 1
-end
+if global_mobs_animal_pack_mobs_giraffe.spawn_enabled_giraffe then
 mobs:spawn({
 	name = "mobs_giraffe:jeraf",
-	nodes = {"default:sand", "default:desert_sand", "default:dirt_with_dry_grass"},
-	min_light = 10,
-	chance = 300000,
-	min_height = l_spawn_elevation_min,
-	max_height = 1000,
+	nodes = global_mobs_animal_pack_mobs_giraffe.spawn_on_giraffe,
+	neighbors = global_mobs_animal_pack_mobs_giraffe.spawn_near_giraffe,
+	min_light = global_mobs_animal_pack_mobs_giraffe.spawn_min_light_giraffe,
+	max_light = global_mobs_animal_pack_mobs_giraffe.spawn_max_light_giraffe,
+	chance = global_mobs_animal_pack_mobs_giraffe.spawn_chance_giraffe,
+	interval = global_mobs_animal_pack_mobs_giraffe.spawn_interval_giraffe,
+	active_object_count = global_mobs_animal_pack_mobs_giraffe.spawn_active_object_count_giraffe,
+	min_height = global_mobs_animal_pack_mobs_giraffe.spawn_min_height_giraffe,
+	max_height = global_mobs_animal_pack_mobs_giraffe.spawn_max_height_giraffe,
 	day_toggle = true,
 })
+end
 mobs:register_egg("mobs_giraffe:jeraf", "Giraffe", "wool_yellow.png", 1)

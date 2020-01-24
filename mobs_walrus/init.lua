@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_walrus") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_walrus:walrus", {
 	type = "animal",
 	passive = false,
@@ -67,8 +69,9 @@ mobs:register_mob("mobs_walrus:walrus", {
 	fly = true,
 	fly_in = "default:water_source",
 })
-
-mobs:register_spawn("mobs_walrus:walrus", {"default:dirt_with_snow", "default:snowblock", "default:ice"}, 20, 0, 300000, 1, 1000)
+if global_mobs_animal_pack_mobs_walrus.spawn_enabled_walrus then
+mobs:register_spawn("mobs_walrus:walrus", global_mobs_animal_pack_mobs_walrus.spawn_on_walrus, global_mobs_animal_pack_mobs_walrus.spawn_max_light_walrus, global_mobs_animal_pack_mobs_walrus.spawn_min_light_walrus, global_mobs_animal_pack_mobs_walrus.spawn_chance_walrus, global_mobs_animal_pack_mobs_walrus.spawn_active_object_count_walrus, global_mobs_animal_pack_mobs_walrus.spawn_max_height_walrus)
+end
 mobs:register_egg("mobs_walrus:walrus", "Walrus", "default_grass.png", 1)
 
 minetest.register_alias_force("arctic_life:walrus", "mobs_walrus:walrus")

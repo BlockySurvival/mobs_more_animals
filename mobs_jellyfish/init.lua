@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_jellyfish") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_jellyfish:jellyfish", {
 	lifetimer = 0,  -- doesn't despawn
 	type = "animal",
@@ -32,9 +34,9 @@ mobs:register_mob("mobs_jellyfish:jellyfish", {
 		mobs:capture_mob(self, clicker, 80, 100, 0, true, "mobs_jellyfish:jellyfish")
 	end
 })
+
+if global_mobs_animal_pack_mobs_jellyfish.spawn_enabled_jellyfish then
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_jellyfish:jellyfish",
-	{"default:water_source"},
-	{"default:water_flowing","default:water_source"},
-	1, 14, 30, 300000, 1, -50, 0)
+mobs:spawn_specific("mobs_jellyfish:jellyfish", global_mobs_animal_pack_mobs_jellyfish.spawn_on_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_near_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_min_light_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_max_light_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_interval_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_chance_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_active_object_count_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_min_height_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_max_height_jellyfish)
+end
 mobs:register_egg("mobs_jellyfish:jellyfish", "Jellyfish", "jellyfish_inv.png", 0)

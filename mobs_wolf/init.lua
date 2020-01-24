@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_wolf") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_wolf:wolf", {
 	type = "animal",
 	visual = "mesh",
@@ -56,27 +58,21 @@ mobs:register_mob("mobs_wolf:wolf", {
 		end
 	end
 })
-
-local l_spawn_elevation_min = minetest.setting_get("water_level")
-if l_spawn_elevation_min then
-	l_spawn_elevation_min = l_spawn_elevation_min - 5
-else
-	l_spawn_elevation_min = -5
-end
+if global_mobs_animal_pack_mobs_wolf.spawn_enabled_wolf then
 mobs:spawn({
 	name = "mobs_wolf:wolf",
-	nodes = {
-		"default:dirt_with_grass",
-		"default:dirt_with_snow",
-		"default:dirt_with_coniferous_litter",
-		"ethereal:green_dirt_top",
-	},
-	min_light = 10,
-	chance = 300000,
-	min_height = l_spawn_elevation_min,
-	max_height = 1000,
+	nodes = global_mobs_animal_pack_mobs_wolf.spawn_on_wolf,
+	neighbors = global_mobs_animal_pack_mobs_wolf.spawn_near_wolf,
+	min_light = global_mobs_animal_pack_mobs_wolf.spawn_min_light_wolf,
+	max_light = global_mobs_animal_pack_mobs_wolf.spawn_max_light_wolf,
+	chance = global_mobs_animal_pack_mobs_wolf.spawn_chance_wolf,
+	interval = global_mobs_animal_pack_mobs_wolf.spawn_interval_wolf,
+	active_object_count = global_mobs_animal_pack_mobs_wolf.spawn_active_object_count_wolf,
+	min_height = global_mobs_animal_pack_mobs_wolf.spawn_min_height_wolf,
+	max_height = global_mobs_animal_pack_mobs_wolf.spawn_max_height_wolf,
 	day_toggle = true,
 })
+end
 mobs:register_egg("mobs_wolf:wolf", "Wolf", "wool_grey.png", 1)
 
 -- Dog

@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_butterfly") .. "/config.lua") -- Oversword
+
 -- local variables
 local l_skins = {
 	{"bf1.png^bf2.png^bf3.png^bf4.png^bf5.png"},
@@ -9,8 +11,6 @@ local l_skins = {
 	{"(bf1.png^[colorize:pink)^(bf2.png^[colorize:white)^(bf3.png^[colorize:blue)^(bf4.png^[colorize:orange)^(bf5.png^[colorize:gray)"},
 	{"(bf1.png^[colorize:darkgreen)^(bf2.png^[colorize:brown)^(bf3.png^[colorize:black)^(bf4.png^[colorize:darkgray)^(bf5.png^[colorize:red)"}
 }
-local l_spawnnear	= {"group:flower"}
-local l_spawnchance	= 300000
 
 -- Butterfly
 mobs:register_mob("mobs_butterfly:butterfly", {
@@ -41,6 +41,9 @@ mobs:register_mob("mobs_butterfly:butterfly", {
 		mobs:capture_mob(self, clicker, 10, 80, 0, true, "mobs_butterfly:butterfly")
 	end
 })
+
+if global_mobs_animal_pack_mobs_butterfly.spawn_enabled_butterfly then
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_butterfly:butterfly", {"air"}, l_spawnnear, 5, 20, 30, l_spawnchance, 1, 0, 5000)
+mobs:spawn_specific("mobs_butterfly:butterfly", global_mobs_animal_pack_mobs_butterfly.spawn_on_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_near_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_min_light_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_max_light_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_interval_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_chance_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_active_object_count_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_min_height_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_max_height_butterfly)
+end
 mobs:register_egg("mobs_butterfly:butterfly", "Butterfly", "default_cloud.png", 1)

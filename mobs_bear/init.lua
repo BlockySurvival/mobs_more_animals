@@ -101,14 +101,19 @@ mobs:register_mob("mobs_bear:medved", {
 	end
 })
 
-local l_spawn_elevation_min = (minetest.setting_get("water_level") or 0) - 10
+if global_mobs_animal_pack_mobs_bear.spawn_enabled_bear then
 mobs:spawn({
 	name = "mobs_bear:medved",
-	nodes = {"default:dirt_with_grass", "ethereal:green_dirt_top"},
-	min_light = 10,
-	chance = 300000,
-	min_height = l_spawn_elevation_min,
-	max_height = 1000,
+	nodes = global_mobs_animal_pack_mobs_bear.spawn_on_bear,
+	neighbors = global_mobs_animal_pack_mobs_bear.spawn_near_bear,
+	min_light = global_mobs_animal_pack_mobs_bear.spawn_min_light_bear,
+	max_light = global_mobs_animal_pack_mobs_bear.spawn_max_light_bear,
+	chance = global_mobs_animal_pack_mobs_bear.spawn_chance_bear,
+	interval = global_mobs_animal_pack_mobs_bear.spawn_interval_bear,
+	active_object_count = global_mobs_animal_pack_mobs_bear.spawn_active_object_count_bear,
+	min_height = global_mobs_animal_pack_mobs_bear.spawn_min_height_bear,
+	max_height = global_mobs_animal_pack_mobs_bear.spawn_max_height_bear,
 	day_toggle = true,
 })
+end
 mobs:register_egg("mobs_bear:medved", "Bear", "wool_brown.png", 1)

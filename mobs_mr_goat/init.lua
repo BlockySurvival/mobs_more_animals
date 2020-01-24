@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mr_goat_fish") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_mr_goat:goat", {
 	type = "animal",
 	visual = "mesh",
@@ -81,21 +83,21 @@ mobs:register_mob("mobs_mr_goat:goat", {
 	end
 })
 
-local l_spawn_elevation_min = minetest.setting_get("water_level")
-if l_spawn_elevation_min then
-	l_spawn_elevation_min = l_spawn_elevation_min + 1
-else
-	l_spawn_elevation_min = 1
-end
+if global_mobs_animal_pack_mobs_mr_goat.spawn_enabled_goat then
 mobs:spawn({
 	name = "mobs_mr_goat:goat",
-	nodes = {"default:dirt_with_grass", "ethereal:green_dirt_top"},
-	min_light = 10,
-	chance = 300000,
-	min_height = l_spawn_elevation_min,
-	max_height = 1000,
+	nodes = global_mobs_animal_pack_mobs_mr_goat.spawn_on_goat,
+	neighbors = global_mobs_animal_pack_mobs_mr_goat.spawn_near_goat,
+	min_light = global_mobs_animal_pack_mobs_mr_goat.spawn_min_light_goat,
+	max_light = global_mobs_animal_pack_mobs_mr_goat.spawn_max_light_goat,
+	chance = global_mobs_animal_pack_mobs_mr_goat.spawn_chance_goat,
+	interval = global_mobs_animal_pack_mobs_mr_goat.spawn_interval_goat,
+	active_object_count = global_mobs_animal_pack_mobs_mr_goat.spawn_active_object_count_goat,
+	min_height = global_mobs_animal_pack_mobs_mr_goat.spawn_min_height_goat,
+	max_height = global_mobs_animal_pack_mobs_mr_goat.spawn_max_height_goat,
 	day_toggle = true,
 })
+end
 mobs:register_egg("mobs_mr_goat:goat", "Goat", "default_grass.png", 1)
 
 -- bucket of goat milk

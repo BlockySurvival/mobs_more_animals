@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_deer") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_deer:deer", {
 	type = "animal",
 	visual = "mesh",
@@ -61,23 +63,19 @@ mobs:register_mob("mobs_deer:deer", {
 	end
 })
 
-local l_spawn_elevation_min = minetest.setting_get("water_level")
-if l_spawn_elevation_min then
-	l_spawn_elevation_min = l_spawn_elevation_min + 1
-else
-	l_spawn_elevation_min = 1
-end
+if global_mobs_animal_pack_mobs_deer.spawn_enabled_deer then
 mobs:spawn({
 	name = "mobs_deer:deer",
-	nodes = {
-		"default:dirt_with_grass",
-		"default:dirt_with_coniferous_litter",
-		"ethereal:green_dirt_top"
-	},
-	min_light = 10,
-	chance = 300000,
-	min_height = l_spawn_elevation_min,
-	max_height = 1000,
+	nodes = global_mobs_animal_pack_mobs_deer.spawn_on_deer,
+	neighbors = global_mobs_animal_pack_mobs_deer.spawn_near_deer,
+	min_light = global_mobs_animal_pack_mobs_deer.spawn_min_light_deer,
+	max_light = global_mobs_animal_pack_mobs_deer.spawn_max_light_deer,
+	chance = global_mobs_animal_pack_mobs_deer.spawn_chance_deer,
+	interval = global_mobs_animal_pack_mobs_deer.spawn_interval_deer,
+	active_object_count = global_mobs_animal_pack_mobs_deer.spawn_active_object_count_deer,
+	min_height = global_mobs_animal_pack_mobs_deer.spawn_min_height_deer,
+	max_height = global_mobs_animal_pack_mobs_deer.spawn_max_height_deer,
 	day_toggle = true,
 })
+end
 mobs:register_egg("mobs_deer:deer", "Deer", "wool_violet.png", 1)
