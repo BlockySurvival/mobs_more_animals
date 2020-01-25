@@ -10,6 +10,8 @@ spawn_min_height           = -31000,
 spawn_max_height           = 31000,
 ]]
 
+local config = {}
+
 local water_level = minetest.setting_get("water_level") or 0
 
 config.spawn_enabled_turtle = true

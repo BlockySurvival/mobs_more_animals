@@ -1,6 +1,6 @@
 if not mobs.mod == "redo" then return end
 
-dofile(minetest.get_modpath("mr_goat_fish") .. "/config.lua") -- Oversword
+dofile(minetest.get_modpath("mobs_mr_goat") .. "/config.lua") -- Oversword
 
 mobs:register_mob("mobs_mr_goat:goat", {
 	type = "animal",

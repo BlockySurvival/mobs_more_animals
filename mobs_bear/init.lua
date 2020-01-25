@@ -1,5 +1,7 @@
 if not mobs.mod == "redo" then return end
 
+dofile(minetest.get_modpath("mobs_bear") .. "/config.lua") -- Oversword
+
 mobs:register_mob("mobs_bear:medved", {
 	type = "animal",
 	visual = "mesh",
