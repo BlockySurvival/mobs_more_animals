@@ -1,0 +1,10 @@
+spawn_enabled_goat (Goats Spawn) bool true
+spawn_on_goat (Goats Spawn On) string default:dirt_with_grass,ethereal:green_dirt_top
+spawn_near_goat (Goats Spawn Near) string 
+spawn_min_light_goat (Goat Minimum Spawn Light) int 10
+spawn_max_light_goat (Goat Maximum Spawn Light) int 15
+spawn_interval_goat (Goat Spawn Interval) int 30
+spawn_chance_goat (Goat Spawn Chance) int 300000
+spawn_active_object_count_goat (Goat Spawn Active Object Count) int 1
+spawn_min_height_goat (Goat Minimum Spawn Height) int 1
+spawn_max_height_goat (Goat Maximum Spawn Height) int 5000

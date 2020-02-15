@@ -1,7 +1,5 @@
 mobs_doomed = {}
 
-dofile(minetest.get_modpath("mobs_doomed") .. "/config.lua") -- Oversword
-
 -- Table cloning to reduce code repetition
 mobs_doomed.deepclone = function(t) -- deep-copy a table -- from https://gist.github.com/MihailJP/3931841
 	if type(t) ~= "table" then return t end
@@ -16,6 +14,16 @@ mobs_doomed.deepclone = function(t) -- deep-copy a table -- from https://gist.gi
 		end
 	end
 	return target
+end
+
+mobs_doomed.CSVtoTable = function (str) --[[
+    parses comma separated string into an ordered table of strings
+    whitespace will be trimmed from strings ]]
+    if str == nil then return nil end
+    local ret = {}
+    for item in string.gmatch( str, "([^,%s]+)" ) do table.insert(ret, item) end
+    if table.getn(ret) == 0 then return nil end
+    return ret
 end
 
 -- Start loading ----------------------------------------------------------------------------------

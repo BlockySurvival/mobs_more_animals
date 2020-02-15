@@ -1,0 +1,10 @@
+spawn_enabled_jellyfish (Jellyfishs Spawn) bool true
+spawn_on_jellyfish (Jellyfishs Spawn On) string default:water_source
+spawn_near_jellyfish (Jellyfishs Spawn Near) string default:water_flowing,default:water_source
+spawn_min_light_jellyfish (Jellyfish Minimum Spawn Light) int 1
+spawn_max_light_jellyfish (Jellyfish Maximum Spawn Light) int 14
+spawn_interval_jellyfish (Jellyfish Spawn Interval) int 30
+spawn_chance_jellyfish (Jellyfish Spawn Chance) int 300000
+spawn_active_object_count_jellyfish (Jellyfish Spawn Active Object Count) int 1
+spawn_min_height_jellyfish (Jellyfish Minimum Spawn Height) int -50
+spawn_max_height_jellyfish (Jellyfish Maximum Spawn Height) int  -1

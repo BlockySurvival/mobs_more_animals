@@ -1,7 +1,5 @@
 if not mobs.mod == "redo" then return end
 
-dofile(minetest.get_modpath("mobs_bat") .. "/config.lua") -- Oversword
-
 -- local variables
 local l_skins = {
 	{"animal_bat.png"},
@@ -51,8 +49,31 @@ mobs:register_mob("mobs_bat:bat", {
 	},
 })
 
-if global_mobs_animal_pack_mobs_bat.spawn_enabled_bat then
+local l_spawn_enabled_bat = minetest.settings:get_bool("mobs_bat.spawn_enabled_bat", true)
+
+if l_spawn_enabled_bat then
+    
+local function CSVtoTable(str) --[[
+    parses comma separated string into an ordered table of strings
+    whitespace will be trimmed from strings ]]
+    if str == nil then return nil end
+    local ret = {}
+    for item in string.gmatch( str, "([^,%s]+)" ) do table.insert(ret, item) end
+    if table.getn(ret) == 0 then return nil end
+    return ret
+end
+
+local l_spawn_on_bat = CSVtoTable(minetest.settings:get("mobs_bat.spawn_on_bat")) or {"air"}
+local l_spawn_near_bat = CSVtoTable(minetest.settings:get("mobs_bat.spawn_near_bat")) or {"default:stone"}
+local l_spawn_min_light_bat = minetest.settings:get("mobs_bat.spawn_min_light_bat") or 0
+local l_spawn_max_light_bat = minetest.settings:get("mobs_bat.spawn_max_light_bat") or 6
+local l_spawn_interval_bat = minetest.settings:get("mobs_bat.spawn_interval_bat") or 30
+local l_spawn_chance_bat = minetest.settings:get("mobs_bat.spawn_chance_bat") or 300000
+local l_spawn_active_object_count_bat = minetest.settings:get("mobs_bat.spawn_active_object_count_bat") or 2
+local l_spawn_min_height_bat = minetest.settings:get("mobs_bat.spawn_min_height_bat") or -25000
+local l_spawn_max_height_bat = minetest.settings:get("mobs_bat.spawn_max_height_bat") or 5000
+
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_bat:bat",  global_mobs_animal_pack_mobs_bat.spawn_on_bat, global_mobs_animal_pack_mobs_bat.spawn_near_bat, global_mobs_animal_pack_mobs_bat.spawn_min_light_bat, global_mobs_animal_pack_mobs_bat.spawn_max_light_bat, global_mobs_animal_pack_mobs_bat.spawn_interval_bat, global_mobs_animal_pack_mobs_bat.spawn_chance_bat, global_mobs_animal_pack_mobs_bat.spawn_active_object_count_bat, global_mobs_animal_pack_mobs_bat.spawn_min_height_bat, global_mobs_animal_pack_mobs_bat.spawn_max_height_bat)
+mobs:spawn_specific("mobs_bat:bat",  l_spawn_on_bat, l_spawn_near_bat, l_spawn_min_light_bat, l_spawn_max_light_bat, l_spawn_interval_bat, l_spawn_chance_bat, l_spawn_active_object_count_bat, l_spawn_min_height_bat, l_spawn_max_height_bat)
 end
 mobs:register_egg("mobs_bat:bat", "Bat", "animal_bat_inv.png", 0)

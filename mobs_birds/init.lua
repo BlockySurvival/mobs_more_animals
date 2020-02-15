@@ -1,7 +1,5 @@
 if not mobs.mod == "redo" then return end
 
-dofile(minetest.get_modpath("mobs_birds") .. "/config.lua") -- Oversword
-
 -- local variables
 local l_skins_gull = {
 	{"animal_gull_mesh.png"},
@@ -28,6 +26,16 @@ local l_thrush_model		= "mobs_birds_thrush.b3d"
 local l_egg_texture			= "default_cloud.png"
 local l_capture_chance_h	= 5
 local l_capture_chance_n	= 60
+    
+local function CSVtoTable(str) --[[
+    parses comma separated string into an ordered table of strings
+    whitespace will be trimmed from strings ]]
+    if str == nil then return nil end
+    local ret = {}
+    for item in string.gmatch( str, "([^,%s]+)" ) do table.insert(ret, item) end
+    if table.getn(ret) == 0 then return nil end
+    return ret
+end
 
 -- gulls
 mobs:register_mob("mobs_birds:gull", {
@@ -59,9 +67,22 @@ mobs:register_mob("mobs_birds:gull", {
 		{name="mobs:chicken_feather", chance=1, min=0, max=2}
 	},
 })
-if global_mobs_animal_pack_mobs_birds.spawn_enabled_gull then
+
+local l_spawn_enabled_gull = minetest.settings:get_bool("mobs_birds.spawn_enabled_gull", true)
+if l_spawn_enabled_gull then
+
+local l_spawn_on_gull = CSVtoTable(minetest.settings:get("mobs_birds.spawn_on_gull")) or {"air"}
+local l_spawn_near_gull = CSVtoTable(minetest.settings:get("mobs_birds.spawn_near_gull")) or {"default:water_source", "default:water_flowing"}
+local l_spawn_min_light_gull = minetest.settings:get("mobs_birds.spawn_min_light_gull") or 5
+local l_spawn_max_light_gull = minetest.settings:get("mobs_birds.spawn_max_light_gull") or 20
+local l_spawn_interval_gull = minetest.settings:get("mobs_birds.spawn_interval_gull") or 30
+local l_spawn_chance_gull = minetest.settings:get("mobs_birds.spawn_chance_gull") or 240000
+local l_spawn_active_object_count_gull = minetest.settings:get("mobs_birds.spawn_active_object_count_gull") or 1
+local l_spawn_min_height_gull = minetest.settings:get("mobs_birds.spawn_min_height_gull") or 0
+local l_spawn_max_height_gull = minetest.settings:get("mobs_birds.spawn_max_height_gull") or 5000
+
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_birds:gull", global_mobs_animal_pack_mobs_birds.spawn_on_gull, global_mobs_animal_pack_mobs_birds.spawn_near_gull, global_mobs_animal_pack_mobs_birds.spawn_min_light_gull, global_mobs_animal_pack_mobs_birds.spawn_max_light_gull, global_mobs_animal_pack_mobs_birds.spawn_interval_gull, global_mobs_animal_pack_mobs_birds.spawn_chance_gull, global_mobs_animal_pack_mobs_birds.spawn_active_object_count_gull, global_mobs_animal_pack_mobs_birds.spawn_min_height_gull, global_mobs_animal_pack_mobs_birds.spawn_max_height_gull)
+mobs:spawn_specific("mobs_birds:gull", l_spawn_on_gull, l_spawn_near_gull, l_spawn_min_light_gull, l_spawn_max_light_gull, l_spawn_interval_gull, l_spawn_chance_gull, l_spawn_active_object_count_gull, l_spawn_min_height_gull, l_spawn_max_height_gull)
 end
 mobs:register_egg("mobs_birds:gull", "Gull", l_egg_texture, 1)
 
@@ -96,9 +117,22 @@ mobs:register_mob("mobs_birds:bird_lg", {
 		{name="mobs:chicken_feather", chance=1, min=0, max=2}
 	},
 })
-if global_mobs_animal_pack_mobs_birds.spawn_enabled_bird_lg then
+
+local l_spawn_enabled_bird_lg = minetest.settings:get_bool("mobs_birds.spawn_enabled_bird_lg", true)
+if l_spawn_enabled_bird_lg then
+
+local l_spawn_on_bird_lg = CSVtoTable(minetest.settings:get("mobs_birds.spawn_on_bird_lg")) or {"air"}
+local l_spawn_near_bird_lg = CSVtoTable(minetest.settings:get("mobs_birds.spawn_near_bird_lg")) or {"default:leaves", "default:pine_needles", "default:jungleleaves", "default:cactus"}
+local l_spawn_min_light_bird_lg = minetest.settings:get("mobs_birds.spawn_min_light_bird_lg") or 5
+local l_spawn_max_light_bird_lg = minetest.settings:get("mobs_birds.spawn_max_light_bird_lg") or 20
+local l_spawn_interval_bird_lg = minetest.settings:get("mobs_birds.spawn_interval_bird_lg") or 30
+local l_spawn_chance_bird_lg = minetest.settings:get("mobs_birds.spawn_chance_bird_lg") or 360000
+local l_spawn_active_object_count_bird_lg = minetest.settings:get("mobs_birds.spawn_active_object_count_bird_lg") or 1
+local l_spawn_min_height_bird_lg = minetest.settings:get("mobs_birds.spawn_min_height_bird_lg") or 0
+local l_spawn_max_height_bird_lg = minetest.settings:get("mobs_birds.spawn_max_height_bird_lg") or 5000
+
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_birds:bird_lg", global_mobs_animal_pack_mobs_birds.spawn_on_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_near_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_min_light_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_max_light_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_interval_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_chance_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_active_object_count_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_min_height_bird_lg, global_mobs_animal_pack_mobs_birds.spawn_max_height_bird_lg)
+mobs:spawn_specific("mobs_birds:bird_lg", l_spawn_on_bird_lg, l_spawn_near_bird_lg, l_spawn_min_light_bird_lg, l_spawn_max_light_bird_lg, l_spawn_interval_bird_lg, l_spawn_chance_bird_lg, l_spawn_active_object_count_bird_lg, l_spawn_min_height_bird_lg, l_spawn_max_height_bird_lg)
 end
 mobs:register_egg("mobs_birds:bird_lg", "Large bird", l_egg_texture, 1)
 
@@ -133,8 +167,21 @@ mobs:register_mob("mobs_birds:bird_sm", {
 		{name="mobs:chicken_feather", chance=1, min=0, max=1}
 	},
 })
-if global_mobs_animal_pack_mobs_birds.spawn_enabled_bird_sm then
+
+local l_spawn_enabled_bird_sm = minetest.settings:get_bool("mobs_birds.spawn_enabled_bird_sm", true)
+if l_spawn_enabled_bird_sm then
+
+local l_spawn_on_bird_sm = CSVtoTable(minetest.settings:get("mobs_birds.spawn_on_bird_sm")) or {"air"}
+local l_spawn_near_bird_sm = CSVtoTable(minetest.settings:get("mobs_birds.spawn_near_bird_sm")) or {"default:leaves", "default:pine_needles", "default:jungleleaves", "default:cactus"}
+local l_spawn_min_light_bird_sm = minetest.settings:get("mobs_birds.spawn_min_light_bird_sm") or 5
+local l_spawn_max_light_bird_sm = minetest.settings:get("mobs_birds.spawn_max_light_bird_sm") or 20
+local l_spawn_interval_bird_sm = minetest.settings:get("mobs_birds.spawn_interval_bird_sm") or 30
+local l_spawn_chance_bird_sm = minetest.settings:get("mobs_birds.spawn_chance_bird_sm") or 360000
+local l_spawn_active_object_count_bird_sm = minetest.settings:get("mobs_birds.spawn_active_object_count_bird_sm") or 1
+local l_spawn_min_height_bird_sm = minetest.settings:get("mobs_birds.spawn_min_height_bird_sm") or 0
+local l_spawn_max_height_bird_sm = minetest.settings:get("mobs_birds.spawn_max_height_bird_sm") or 5000
+
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_birds:bird_sm", global_mobs_animal_pack_mobs_birds.spawn_on_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_near_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_min_light_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_max_light_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_interval_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_chance_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_active_object_count_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_min_height_bird_sm, global_mobs_animal_pack_mobs_birds.spawn_max_height_bird_sm)
+mobs:spawn_specific("mobs_birds:bird_sm", l_spawn_on_bird_sm, l_spawn_near_bird_sm, l_spawn_min_light_bird_sm, l_spawn_max_light_bird_sm, l_spawn_interval_bird_sm, l_spawn_chance_bird_sm, l_spawn_active_object_count_bird_sm, l_spawn_min_height_bird_sm, l_spawn_max_height_bird_sm)
 end
 mobs:register_egg("mobs_birds:bird_sm", "Small bird", l_egg_texture, 1)

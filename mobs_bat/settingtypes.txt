@@ -1,0 +1,10 @@
+spawn_enabled_bat (Bats Spawn) bool true
+spawn_on_bat (Bats Spawn On) string air
+spawn_near_bat (Bats Spawn Near) string default:stone
+spawn_min_light_bat (Bat Minimum Spawn Light) int 0
+spawn_max_light_bat (Bat Maximum Spawn Light) int 6
+spawn_interval_bat (Bat Spawn Interval) int 30
+spawn_chance_bat (Bat Spawn Chance) int 300000
+spawn_active_object_count_bat (Bat Spawn Active Object Count) int 2
+spawn_min_height_bat (Bat Minimum Spawn Height) int -25000
+spawn_max_height_bat (Bat Maximum Spawn Height) int 5000

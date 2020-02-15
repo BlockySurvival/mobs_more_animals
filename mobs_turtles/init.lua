@@ -1,7 +1,5 @@
 if not mobs.mod == "redo" then return end
 
-dofile(minetest.get_modpath("mobs_turtles") .. "/config.lua") -- Oversword
-
 local l_colors = {
 	"#604000:175",	--brown
 	"#604000:100",	--brown2
@@ -23,6 +21,16 @@ local l_anims = {
 	hide_start = 95,	hide_end = 100
 }
 local l_model			= "mobf_turtle.x"
+
+local function CSVtoTable(str) --[[
+    parses comma separated string into an ordered table of strings
+    whitespace will be trimmed from strings ]]
+    if str == nil then return nil end
+    local ret = {}
+    for item in string.gmatch( str, "([^,%s]+)" ) do table.insert(ret, item) end
+    if table.getn(ret) == 0 then return nil end
+    return ret
+end
 
 -- land turtle
 mobs:register_mob("mobs_turtles:turtle", {
@@ -95,9 +103,21 @@ mobs:register_mob("mobs_turtles:turtle", {
 	end
 })
 
-if global_mobs_animal_pack_mobs_turtles.spawn_enabled_turtle then
+local l_spawn_enabled_turtle = minetest.settings:get_bool("mobs_turtles.spawn_enabled_turtle", true)
+if l_spawn_enabled_turtle then
+    
+local l_spawn_on_turtle = CSVtoTable(minetest.settings:get("mobs_turtles.spawn_on_turtle")) or {"default:dirt_with_grass","default:jungle_grass","default:sand","default:desert_sand"}
+local l_spawn_near_turtle = CSVtoTable(minetest.settings:get("mobs_turtles.spawn_near_turtle")) or {"default:dirt_with_grass","default:jungle_grass","default:sand","default:desert_sand","default:papyrus","default:cactus","dryplants:juncus","dryplants:reedmace"}
+local l_spawn_min_light_turtle = minetest.settings:get("mobs_turtles.spawn_min_light_turtle") or 5
+local l_spawn_max_light_turtle = minetest.settings:get("mobs_turtles.spawn_max_light_turtle") or 20
+local l_spawn_interval_turtle = minetest.settings:get("mobs_turtles.spawn_interval_turtle") or 30
+local l_spawn_chance_turtle = minetest.settings:get("mobs_turtles.spawn_chance_turtle") or 300000
+local l_spawn_active_object_count_turtle = minetest.settings:get("mobs_turtles.spawn_active_object_count_turtle") or 1
+local l_spawn_min_height_turtle = minetest.settings:get("mobs_turtles.spawn_min_height_turtle") or 1
+local l_spawn_max_height_turtle = minetest.settings:get("mobs_turtles.spawn_max_height_turtle") or 5000
+
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_turtles:turtle", global_mobs_animal_pack_mobs_turtles.spawn_on_turtle, global_mobs_animal_pack_mobs_turtles.spawn_near_turtle, global_mobs_animal_pack_mobs_turtles.spawn_min_light_turtle, global_mobs_animal_pack_mobs_turtles.spawn_max_light_turtle, global_mobs_animal_pack_mobs_turtles.spawn_interval_turtle, global_mobs_animal_pack_mobs_turtles.spawn_chance_turtle, global_mobs_animal_pack_mobs_turtles.spawn_active_object_count_turtle, global_mobs_animal_pack_mobs_turtles.spawn_min_height_turtle, global_mobs_animal_pack_mobs_turtles.spawn_max_height_turtle)
+mobs:spawn_specific("mobs_turtles:turtle", l_spawn_on_turtle, l_spawn_near_turtle, l_spawn_min_light_turtle, l_spawn_max_light_turtle, l_spawn_interval_turtle, l_spawn_chance_turtle, l_spawn_active_object_count_turtle, l_spawn_min_height_turtle, l_spawn_max_height_turtle)
 end
 mobs:register_egg("mobs_turtles:turtle", "Turtle", "default_grass.png", 1)
 
@@ -139,8 +159,21 @@ mobs:register_mob("mobs_turtles:seaturtle", {
 		if mobs:capture_mob(self, clicker, 60, 80, 100, false, nil) then return end
 	end
 })
-if global_mobs_animal_pack_mobs_turtles.spawn_enabled_seaturtle then
+
+local l_spawn_enabled_seaturtle = minetest.settings:get_bool("mobs_turtles.spawn_enabled_seaturtle", true)
+if l_spawn_enabled_seaturtle then
+
+local l_spawn_on_seaturtle = CSVtoTable(minetest.settings:get("mobs_turtles.spawn_on_seaturtle")) or {"default:water_flowing","default:water_source"}
+local l_spawn_near_seaturtle = CSVtoTable(minetest.settings:get("mobs_turtles.spawn_near_seaturtle")) or {"default:water_flowing","default:water_source","group:seaplants","seawrecks:woodship","seawrecks:uboot"}
+local l_spawn_min_light_seaturtle = minetest.settings:get("mobs_turtles.spawn_min_light_seaturtle") or 5
+local l_spawn_max_light_seaturtle = minetest.settings:get("mobs_turtles.spawn_max_light_seaturtle") or 20
+local l_spawn_interval_seaturtle = minetest.settings:get("mobs_turtles.spawn_interval_seaturtle") or 30
+local l_spawn_chance_seaturtle = minetest.settings:get("mobs_turtles.spawn_chance_seaturtle") or 300000
+local l_spawn_active_object_count_seaturtle = minetest.settings:get("mobs_turtles.spawn_active_object_count_seaturtle") or 1
+local l_spawn_min_height_seaturtle = minetest.settings:get("mobs_turtles.spawn_min_height_seaturtle") or -50
+local l_spawn_max_height_seaturtle = minetest.settings:get("mobs_turtles.spawn_max_height_seaturtle") or 0
+
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_turtles:seaturtle", global_mobs_animal_pack_mobs_turtles.spawn_on_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_near_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_min_light_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_max_light_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_interval_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_chance_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_active_object_count_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_min_height_seaturtle, global_mobs_animal_pack_mobs_turtles.spawn_max_height_seaturtle)
+mobs:spawn_specific("mobs_turtles:seaturtle", l_spawn_on_seaturtle, l_spawn_near_seaturtle, l_spawn_min_light_seaturtle, l_spawn_max_light_seaturtle, l_spawn_interval_seaturtle, l_spawn_chance_seaturtle, l_spawn_active_object_count_seaturtle, l_spawn_min_height_seaturtle, l_spawn_max_height_seaturtle)
 end
 mobs:register_egg("mobs_turtles:seaturtle", "Sea Turtle", "default_water.png", 1)

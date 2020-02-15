@@ -58,6 +58,21 @@ mobs:register_mob("mobs_doomed:elephant", {
 
 mobs:register_egg("mobs_doomed:elephant", "Elephant", "default_dry_grass.png", 1)
 
-if global_mobs_animal_pack_mobs_doomed.spawn_enabled_elephant then
-mobs:spawn_specific("mobs_doomed:elephant", global_mobs_animal_pack_mobs_doomed.spawn_on_elephant, global_mobs_animal_pack_mobs_doomed.spawn_near_elephant, global_mobs_animal_pack_mobs_doomed.spawn_min_light_elephant, global_mobs_animal_pack_mobs_doomed.spawn_max_light_elephant, global_mobs_animal_pack_mobs_doomed.spawn_interval_elephant, global_mobs_animal_pack_mobs_doomed.spawn_chance_elephant, global_mobs_animal_pack_mobs_doomed.spawn_active_object_count_elephant, global_mobs_animal_pack_mobs_doomed.spawn_min_height_elephant, global_mobs_animal_pack_mobs_doomed.spawn_max_height_elephant, true)
+local l_spawn_enabled_elephant = minetest.settings:get_bool("mobs_doomed.spawn_enabled_elephant", true)
+if l_spawn_enabled_elephant then
+
+local l_spawn_on_elephant = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_on_elephant")) or {
+						"default:dirt_with_dry_grass",
+						"default:desert_sand"
+					}
+local l_spawn_near_elephant = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_near_elephant")) or {"air"}
+local l_spawn_min_light_elephant = minetest.settings:get("mobs_doomed.spawn_min_light_elephant") or 10
+local l_spawn_max_light_elephant = minetest.settings:get("mobs_doomed.spawn_max_light_elephant") or 14
+local l_spawn_interval_elephant = minetest.settings:get("mobs_doomed.spawn_interval_elephant") or 30
+local l_spawn_chance_elephant = minetest.settings:get("mobs_doomed.spawn_chance_elephant") or 300000
+local l_spawn_active_object_count_elephant = minetest.settings:get("mobs_doomed.spawn_active_object_count_elephant") or 2
+local l_spawn_min_height_elephant = minetest.settings:get("mobs_doomed.spawn_min_height_elephant") or 0
+local l_spawn_max_height_elephant = minetest.settings:get("mobs_doomed.spawn_max_height_elephant") or 5000
+
+mobs:spawn_specific("mobs_doomed:elephant", l_spawn_on_elephant, l_spawn_near_elephant, l_spawn_min_light_elephant, l_spawn_max_light_elephant, l_spawn_interval_elephant, l_spawn_chance_elephant, l_spawn_active_object_count_elephant, l_spawn_min_height_elephant, l_spawn_max_height_elephant, true)
 end

@@ -1,0 +1,21 @@
+spawn_enabled_clownfish (Clownfish Spawns) bool true
+spawn_on_clownfish (Clownfish Spawns On) string default:water_source,default:water_flowing,default:river_water_source,default:river_water_flowing
+spawn_near_clownfish (Clownfish Spawns Near) string default:sand,default:dirt,group:seaplants,group:seacoral
+spawn_min_light_clownfish (Clownfish Minimum Spawn Light) int 5
+spawn_max_light_clownfish (Clownfish Maximum Spawn Light) int 20
+spawn_interval_clownfish (Clownfish Spawn Interval) int 30
+spawn_chance_clownfish (Clownfish Spawn Chance) int 100000
+spawn_active_object_count_clownfish (Clownfish Spawn Active Object Count) int 1
+spawn_min_height_clownfish (Clownfish Minimum Spawn Height) int -50
+spawn_max_height_clownfish (Clownfish Maximum Spawn Height) int -1
+
+spawn_enabled_tropical_fish (Tropical Fish Spawns) bool true
+spawn_on_tropical_fish (Tropical Fish Spawns On) string default:water_source,default:water_flowing,default:river_water_source,default:river_water_flowing
+spawn_near_tropical_fish (Tropical Fish Spawns Near) string default:sand,default:dirt,group:seaplants,group:seacoral
+spawn_min_light_tropical_fish (Tropical Fish Minimum Spawn Light) int 5
+spawn_max_light_tropical_fish (Tropical Fish Maximum Spawn Light) int 20
+spawn_interval_tropical_fish (Tropical Fish Spawn Interval) int 30
+spawn_chance_tropical_fish (Tropical Fish Spawn Chance) int 100000
+spawn_active_object_count_tropical_fish (Tropical Fish Spawn Active Object Count) int 1
+spawn_min_height_tropical_fish (Tropical Fish Minimum Spawn Height) int -50
+spawn_max_height_tropical_fish (Tropical Fish Maximum Spawn Height) int  -1

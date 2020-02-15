@@ -1,7 +1,5 @@
 if not mobs.mod == "redo" then return end
 
-dofile(minetest.get_modpath("mobs_butterfly") .. "/config.lua") -- Oversword
-
 -- local variables
 local l_skins = {
 	{"bf1.png^bf2.png^bf3.png^bf4.png^bf5.png"},
@@ -42,8 +40,30 @@ mobs:register_mob("mobs_butterfly:butterfly", {
 	end
 })
 
-if global_mobs_animal_pack_mobs_butterfly.spawn_enabled_butterfly then
+local l_spawn_enabled_butterfly = minetest.settings:get_bool("mobs_butterfly.spawn_enabled_butterfly", true)
+if l_spawn_enabled_butterfly then
+    
+local function CSVtoTable(str) --[[
+    parses comma separated string into an ordered table of strings
+    whitespace will be trimmed from strings ]]
+    if str == nil then return nil end
+    local ret = {}
+    for item in string.gmatch( str, "([^,%s]+)" ) do table.insert(ret, item) end
+    if table.getn(ret) == 0 then return nil end
+    return ret
+end
+
+local l_spawn_on_butterfly = CSVtoTable(minetest.settings:get("mobs_butterfly.spawn_on_butterfly")) or {"air"}
+local l_spawn_near_butterfly = CSVtoTable(minetest.settings:get("mobs_butterfly.spawn_near_butterfly")) or {"group:flower"}
+local l_spawn_min_light_butterfly = minetest.settings:get("mobs_butterfly.spawn_min_light_butterfly") or 5
+local l_spawn_max_light_butterfly = minetest.settings:get("mobs_butterfly.spawn_max_light_butterfly") or 20
+local l_spawn_interval_butterfly = minetest.settings:get("mobs_butterfly.spawn_interval_butterfly") or 30
+local l_spawn_chance_butterfly = minetest.settings:get("mobs_butterfly.spawn_chance_butterfly") or 300000
+local l_spawn_active_object_count_butterfly = minetest.settings:get("mobs_butterfly.spawn_active_object_count_butterfly") or 1
+local l_spawn_min_height_butterfly = minetest.settings:get("mobs_butterfly.spawn_min_height_butterfly") or 0
+local l_spawn_max_height_butterfly = minetest.settings:get("mobs_butterfly.spawn_max_height_butterfly") or 5000
+
 --name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_butterfly:butterfly", global_mobs_animal_pack_mobs_butterfly.spawn_on_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_near_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_min_light_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_max_light_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_interval_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_chance_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_active_object_count_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_min_height_butterfly, global_mobs_animal_pack_mobs_butterfly.spawn_max_height_butterfly)
+mobs:spawn_specific("mobs_butterfly:butterfly", l_spawn_on_butterfly, l_spawn_near_butterfly, l_spawn_min_light_butterfly, l_spawn_max_light_butterfly, l_spawn_interval_butterfly, l_spawn_chance_butterfly, l_spawn_active_object_count_butterfly, l_spawn_min_height_butterfly, l_spawn_max_height_butterfly)
 end
 mobs:register_egg("mobs_butterfly:butterfly", "Butterfly", "default_cloud.png", 1)

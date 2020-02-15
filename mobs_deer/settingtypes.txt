@@ -1,0 +1,10 @@
+spawn_enabled_anml (Anmls Spawn) bool true
+spawn_on_anml (Anmls Spawn On) string  default:dirt_with_grass,default:dirt_with_coniferous_litter,ethereal:green_dirt_top
+spawn_near_anml (Anmls Spawn Near) string 
+spawn_min_light_anml (Anml Minimum Spawn Light) int 10
+spawn_max_light_anml (Anml Maximum Spawn Light) int 15
+spawn_interval_anml (Anml Spawn Interval) int 30
+spawn_chance_anml (Anml Spawn Chance) int 300000
+spawn_active_object_count_anml (Anml Spawn Active Object Count) int 1
+spawn_min_height_anml (Anml Minimum Spawn Height) int 1
+spawn_max_height_anml (Anml Maximum Spawn Height) int 5000

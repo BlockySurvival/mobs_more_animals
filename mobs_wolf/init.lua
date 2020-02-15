@@ -1,7 +1,5 @@
 if not mobs.mod == "redo" then return end
 
-dofile(minetest.get_modpath("mobs_wolf") .. "/config.lua") -- Oversword
-
 mobs:register_mob("mobs_wolf:wolf", {
 	type = "animal",
 	visual = "mesh",
@@ -58,18 +56,48 @@ mobs:register_mob("mobs_wolf:wolf", {
 		end
 	end
 })
-if global_mobs_animal_pack_mobs_wolf.spawn_enabled_wolf then
+
+local l_spawn_enabled_wolf = minetest.settings:get_bool("mobs_wolf.spawn_enabled_wolf", true)
+if l_spawn_enabled_wolf then
+
+    
+local function CSVtoTable(str) --[[
+    parses comma separated string into an ordered table of strings
+    whitespace will be trimmed from strings ]]
+    if str == nil then return nil end
+    local ret = {}
+    for item in string.gmatch( str, "([^,%s]+)" ) do table.insert(ret, item) end
+    if table.getn(ret) == 0 then return nil end
+    return ret
+end
+
+local water_level = minetest.setting_get("water_level") or 0
+local l_spawn_on_wolf = CSVtoTable(minetest.settings:get("mobs_wolf.spawn_on_wolf")) or {
+	"default:dirt_with_grass",
+	"default:dirt_with_snow",
+	"default:dirt_with_coniferous_litter",
+	"ethereal:green_dirt_top",
+}
+local l_spawn_near_wolf = CSVtoTable(minetest.settings:get("mobs_wolf.spawn_near_wolf")) or nil
+local l_spawn_min_light_wolf = minetest.settings:get("mobs_wolf.spawn_min_light_wolf") or 10
+local l_spawn_max_light_wolf = minetest.settings:get("mobs_wolf.spawn_max_light_wolf") or nil
+local l_spawn_interval_wolf = minetest.settings:get("mobs_wolf.spawn_interval_wolf") or 300000
+local l_spawn_chance_wolf = minetest.settings:get("mobs_wolf.spawn_chance_wolf") or nil
+local l_spawn_active_object_count_wolf = minetest.settings:get("mobs_wolf.spawn_active_object_count_wolf") or nil
+local l_spawn_min_height_wolf = minetest.settings:get("mobs_wolf.spawn_min_height_wolf") or water_level - 5
+local l_spawn_max_height_wolf = minetest.settings:get("mobs_wolf.spawn_max_height_wolf") or 5000
+
 mobs:spawn({
 	name = "mobs_wolf:wolf",
-	nodes = global_mobs_animal_pack_mobs_wolf.spawn_on_wolf,
-	neighbors = global_mobs_animal_pack_mobs_wolf.spawn_near_wolf,
-	min_light = global_mobs_animal_pack_mobs_wolf.spawn_min_light_wolf,
-	max_light = global_mobs_animal_pack_mobs_wolf.spawn_max_light_wolf,
-	chance = global_mobs_animal_pack_mobs_wolf.spawn_chance_wolf,
-	interval = global_mobs_animal_pack_mobs_wolf.spawn_interval_wolf,
-	active_object_count = global_mobs_animal_pack_mobs_wolf.spawn_active_object_count_wolf,
-	min_height = global_mobs_animal_pack_mobs_wolf.spawn_min_height_wolf,
-	max_height = global_mobs_animal_pack_mobs_wolf.spawn_max_height_wolf,
+	nodes = l_spawn_on_wolf,
+	neighbors = l_spawn_near_wolf,
+	min_light = l_spawn_min_light_wolf,
+	max_light = l_spawn_max_light_wolf,
+	chance = l_spawn_chance_wolf,
+	interval = l_spawn_interval_wolf,
+	active_object_count = l_spawn_active_object_count_wolf,
+	min_height = l_spawn_min_height_wolf,
+	max_height = l_spawn_max_height_wolf,
 	day_toggle = true,
 })
 end

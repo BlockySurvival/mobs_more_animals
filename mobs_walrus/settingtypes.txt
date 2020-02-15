@@ -1,0 +1,7 @@
+spawn_enabled_walrus (Walruss Spawn) bool true
+spawn_on_walrus (Walruss Spawn On) string default:dirt_with_snow,default:snowblock,default:ice
+spawn_min_light_walrus (Walrus Minimum Spawn Light) int 0
+spawn_max_light_walrus (Walrus Maximum Spawn Light) int 20
+spawn_chance_walrus (Walrus Spawn Chance) int 300000
+spawn_active_object_count_walrus (Walrus Spawn Active Object Count) int 1
+spawn_max_height_walrus (Walrus Maximum Spawn Height) int 5000

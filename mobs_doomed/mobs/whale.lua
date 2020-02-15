@@ -53,6 +53,18 @@ mobs:register_mob("mobs_doomed:whale", {
 
 mobs:register_egg("mobs_doomed:whale", "Whale", "wool_blue.png", 1)
 
-if global_mobs_animal_pack_mobs_doomed.spawn_enabled_whale then
-mobs:spawn_specific("mobs_doomed:whale", global_mobs_animal_pack_mobs_doomed.spawn_on_whale, global_mobs_animal_pack_mobs_doomed.spawn_near_whale, global_mobs_animal_pack_mobs_doomed.spawn_min_light_whale, global_mobs_animal_pack_mobs_doomed.spawn_max_light_whale, global_mobs_animal_pack_mobs_doomed.spawn_interval_whale, global_mobs_animal_pack_mobs_doomed.spawn_chance_whale, global_mobs_animal_pack_mobs_doomed.spawn_active_object_count_whale, global_mobs_animal_pack_mobs_doomed.spawn_min_height_whale, global_mobs_animal_pack_mobs_doomed.spawn_max_height_whale, true)
+local l_spawn_enabled_whale = minetest.settings:get_bool("mobs_doomed.spawn_enabled_whale", true)
+if l_spawn_enabled_whale then
+
+local l_spawn_on_whale = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_on_whale")) or {"default:water_source"}
+local l_spawn_near_whale = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_near_whale")) or {"default:water_source"}
+local l_spawn_min_light_whale = minetest.settings:get("mobs_doomed.spawn_min_light_whale") or 0
+local l_spawn_max_light_whale = minetest.settings:get("mobs_doomed.spawn_max_light_whale") or 14
+local l_spawn_interval_whale = minetest.settings:get("mobs_doomed.spawn_interval_whale") or 30
+local l_spawn_chance_whale = minetest.settings:get("mobs_doomed.spawn_chance_whale") or 3000000
+local l_spawn_active_object_count_whale = minetest.settings:get("mobs_doomed.spawn_active_object_count_whale") or 1
+local l_spawn_min_height_whale = minetest.settings:get("mobs_doomed.spawn_min_height_whale") or -40
+local l_spawn_max_height_whale = minetest.settings:get("mobs_doomed.spawn_max_height_whale") or 0
+
+mobs:spawn_specific("mobs_doomed:whale", l_spawn_on_whale, l_spawn_near_whale, l_spawn_min_light_whale, l_spawn_max_light_whale, l_spawn_interval_whale, l_spawn_chance_whale, l_spawn_active_object_count_whale, l_spawn_min_height_whale, l_spawn_max_height_whale, true)
 end

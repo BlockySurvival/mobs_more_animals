@@ -1,7 +1,5 @@
 if not mobs.mod == "redo" then return end
 
-dofile(minetest.get_modpath("mobs_jellyfish") .. "/config.lua") -- Oversword
-
 mobs:register_mob("mobs_jellyfish:jellyfish", {
 	lifetimer = 0,  -- doesn't despawn
 	type = "animal",
@@ -35,8 +33,31 @@ mobs:register_mob("mobs_jellyfish:jellyfish", {
 	end
 })
 
-if global_mobs_animal_pack_mobs_jellyfish.spawn_enabled_jellyfish then
+local l_spawn_enabled_jellyfish = minetest.settings:get_bool("mobs_jellyfish.spawn_enabled_jellyfish", true)
+if l_spawn_enabled_jellyfish then
+
+    
+local function CSVtoTable(str) --[[
+    parses comma separated string into an ordered table of strings
+    whitespace will be trimmed from strings ]]
+    if str == nil then return nil end
+    local ret = {}
+    for item in string.gmatch( str, "([^,%s]+)" ) do table.insert(ret, item) end
+    if table.getn(ret) == 0 then return nil end
+    return ret
+end
+
+local l_spawn_on_jellyfish = CSVtoTable(minetest.settings:get("mobs_jellyfish.spawn_on_jellyfish")) or {"default:water_source"}
+local l_spawn_near_jellyfish = CSVtoTable(minetest.settings:get("mobs_jellyfish.spawn_near_jellyfish")) or {"default:water_flowing","default:water_source"}
+local l_spawn_min_light_jellyfish = minetest.settings:get("mobs_jellyfish.spawn_min_light_jellyfish") or 1
+local l_spawn_max_light_jellyfish = minetest.settings:get("mobs_jellyfish.spawn_max_light_jellyfish") or 14
+local l_spawn_interval_jellyfish = minetest.settings:get("mobs_jellyfish.spawn_interval_jellyfish") or 30
+local l_spawn_chance_jellyfish = minetest.settings:get("mobs_jellyfish.spawn_chance_jellyfish") or 300000
+local l_spawn_active_object_count_jellyfish = minetest.settings:get("mobs_jellyfish.spawn_active_object_count_jellyfish") or 1
+local l_spawn_min_height_jellyfish = minetest.settings:get("mobs_jellyfish.spawn_min_height_jellyfish") or -50
+local l_spawn_max_height_jellyfish = minetest.settings:get("mobs_jellyfish.spawn_max_height_jellyfish") or -1
+
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_jellyfish:jellyfish", global_mobs_animal_pack_mobs_jellyfish.spawn_on_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_near_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_min_light_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_max_light_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_interval_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_chance_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_active_object_count_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_min_height_jellyfish, global_mobs_animal_pack_mobs_jellyfish.spawn_max_height_jellyfish)
+mobs:spawn_specific("mobs_jellyfish:jellyfish", l_spawn_on_jellyfish, l_spawn_near_jellyfish, l_spawn_min_light_jellyfish, l_spawn_max_light_jellyfish, l_spawn_interval_jellyfish, l_spawn_chance_jellyfish, l_spawn_active_object_count_jellyfish, l_spawn_min_height_jellyfish, l_spawn_max_height_jellyfish)
 end
 mobs:register_egg("mobs_jellyfish:jellyfish", "Jellyfish", "jellyfish_inv.png", 0)

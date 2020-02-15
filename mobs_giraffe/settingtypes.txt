@@ -1,0 +1,10 @@
+spawn_enabled_giraffe (Giraffes Spawn) bool true
+spawn_on_giraffe (Giraffes Spawn On) string default:sand,default:desert_sand,default:dirt_with_dry_grass
+spawn_near_giraffe (Giraffes Spawn Near) string 
+spawn_min_light_giraffe (Giraffe Minimum Spawn Light) int 10
+spawn_max_light_giraffe (Giraffe Maximum Spawn Light) int 15
+spawn_interval_giraffe (Giraffe Spawn Interval) int 30
+spawn_chance_giraffe (Giraffe Spawn Chance) int 300000
+spawn_active_object_count_giraffe (Giraffe Spawn Active Object Count) int 1
+spawn_min_height_giraffe (Giraffe Minimum Spawn Height) int 1
+spawn_max_height_giraffe (Giraffe Maximum Spawn Height) int  5000

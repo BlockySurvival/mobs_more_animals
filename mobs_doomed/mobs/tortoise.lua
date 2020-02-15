@@ -53,6 +53,18 @@ mobs:register_mob("mobs_doomed:tortoise", {
 
 mobs:register_egg("mobs_doomed:tortoise", "Tortoise", "default_grass.png", 1)
 
-if global_mobs_animal_pack_mobs_doomed.spawn_enabled_tortoise then
-mobs:spawn_specific("mobs_doomed:tortoise", global_mobs_animal_pack_mobs_doomed.spawn_on_tortoise, global_mobs_animal_pack_mobs_doomed.spawn_near_tortoise, global_mobs_animal_pack_mobs_doomed.spawn_min_light_tortoise, global_mobs_animal_pack_mobs_doomed.spawn_max_light_tortoise, global_mobs_animal_pack_mobs_doomed.spawn_interval_tortoise, global_mobs_animal_pack_mobs_doomed.spawn_chance_tortoise, global_mobs_animal_pack_mobs_doomed.spawn_active_object_count_tortoise, global_mobs_animal_pack_mobs_doomed.spawn_min_height_tortoise, global_mobs_animal_pack_mobs_doomed.spawn_max_height_tortoise, true)
+local l_spawn_enabled_tortoise = minetest.settings:get_bool("mobs_doomed.spawn_enabled_tortoise", true)
+if l_spawn_enabled_tortoise then
+
+local l_spawn_on_tortoise = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_on_tortoise")) or {"default:clay", "group:sand"}
+local l_spawn_near_tortoise = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_near_tortoise")) or {"air"}
+local l_spawn_min_light_tortoise = minetest.settings:get("mobs_doomed.spawn_min_light_tortoise") or 10
+local l_spawn_max_light_tortoise = minetest.settings:get("mobs_doomed.spawn_max_light_tortoise") or 14
+local l_spawn_interval_tortoise = minetest.settings:get("mobs_doomed.spawn_interval_tortoise") or 30
+local l_spawn_chance_tortoise = minetest.settings:get("mobs_doomed.spawn_chance_tortoise") or 300000
+local l_spawn_active_object_count_tortoise = minetest.settings:get("mobs_doomed.spawn_active_object_count_tortoise") or 2
+local l_spawn_min_height_tortoise = minetest.settings:get("mobs_doomed.spawn_min_height_tortoise") or 0
+local l_spawn_max_height_tortoise = minetest.settings:get("mobs_doomed.spawn_max_height_tortoise") or 5000
+
+mobs:spawn_specific("mobs_doomed:tortoise", l_spawn_on_tortoise, l_spawn_near_tortoise, l_spawn_min_light_tortoise, l_spawn_max_light_tortoise, l_spawn_interval_tortoise, l_spawn_chance_tortoise, l_spawn_active_object_count_tortoise, l_spawn_min_height_tortoise, l_spawn_max_height_tortoise, true)
 end

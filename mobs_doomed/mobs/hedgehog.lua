@@ -52,6 +52,21 @@ mobs:register_mob("mobs_doomed:hedgehog", {
 
 mobs:register_egg("mobs_doomed:hedgehog", "Hedgehog", "wool_brown.png", 1)
 
-if global_mobs_animal_pack_mobs_doomed.spawn_enabled_hedgehog then
-mobs:spawn_specific("mobs_doomed:hedgehog", global_mobs_animal_pack_mobs_doomed.spawn_on_hedgehog, global_mobs_animal_pack_mobs_doomed.spawn_near_hedgehog, global_mobs_animal_pack_mobs_doomed.spawn_min_light_hedgehog, global_mobs_animal_pack_mobs_doomed.spawn_max_light_hedgehog, global_mobs_animal_pack_mobs_doomed.spawn_interval_hedgehog, global_mobs_animal_pack_mobs_doomed.spawn_chance_hedgehog, global_mobs_animal_pack_mobs_doomed.spawn_active_object_count_hedgehog, global_mobs_animal_pack_mobs_doomed.spawn_min_height_hedgehog, global_mobs_animal_pack_mobs_doomed.spawn_max_height_hedgehog, nil)
+local l_spawn_enabled_hedgehog = minetest.settings:get_bool("mobs_doomed.spawn_enabled_hedgehog", true)
+if l_spawn_enabled_hedgehog then
+
+local l_spawn_on_hedgehog = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_on_hedgehog")) or {
+						"default:dirt_with_grass",
+						"default:dirt_with_coniferous_litter"
+					}
+local l_spawn_near_hedgehog = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_near_hedgehog")) or {"air"}
+local l_spawn_min_light_hedgehog = minetest.settings:get("mobs_doomed.spawn_min_light_hedgehog") or 0
+local l_spawn_max_light_hedgehog = minetest.settings:get("mobs_doomed.spawn_max_light_hedgehog") or 14
+local l_spawn_interval_hedgehog = minetest.settings:get("mobs_doomed.spawn_interval_hedgehog") or 30
+local l_spawn_chance_hedgehog = minetest.settings:get("mobs_doomed.spawn_chance_hedgehog") or 300000
+local l_spawn_active_object_count_hedgehog = minetest.settings:get("mobs_doomed.spawn_active_object_count_hedgehog") or 2
+local l_spawn_min_height_hedgehog = minetest.settings:get("mobs_doomed.spawn_min_height_hedgehog") or 0
+local l_spawn_max_height_hedgehog = minetest.settings:get("mobs_doomed.spawn_max_height_hedgehog") or 5000
+
+mobs:spawn_specific("mobs_doomed:hedgehog", l_spawn_on_hedgehog, l_spawn_near_hedgehog, l_spawn_min_light_hedgehog, l_spawn_max_light_hedgehog, l_spawn_interval_hedgehog, l_spawn_chance_hedgehog, l_spawn_active_object_count_hedgehog, l_spawn_min_height_hedgehog, l_spawn_max_height_hedgehog, nil)
 end

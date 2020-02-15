@@ -1,0 +1,10 @@
+spawn_enabled_butterfly (Butterflys Spawn) bool true
+spawn_on_butterfly (Butterflys Spawn On) string air
+spawn_near_butterfly (Butterflys Spawn Near) string group:flower
+spawn_min_light_butterfly (Butterfly Minimum Spawn Light) int 5
+spawn_max_light_butterfly (Butterfly Maximum Spawn Light) int 20
+spawn_interval_butterfly (Butterfly Spawn Interval) int 30
+spawn_chance_butterfly (Butterfly Spawn Chance) int 300000
+spawn_active_object_count_butterfly (Butterfly Spawn Active Object Count) int 1
+spawn_min_height_butterfly (Butterfly Minimum Spawn Height) int 0
+spawn_max_height_butterfly (Butterfly Maximum Spawn Height) int 5000

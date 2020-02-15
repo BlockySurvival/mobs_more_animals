@@ -1,0 +1,84 @@
+spawn_enabled_badger (Badgers Spawn) bool true
+spawn_on_badger (Badgers Spawn On) string default:dirt_with_grass,default:dirt,default:dirt_with_coniferous_litter
+spawn_near_badger (Badgers Spawn Near) string air
+spawn_min_light_badger (Badger Minimum Spawn Light) int 0
+spawn_max_light_badger (Badger Maximum Spawn Light) int 14
+spawn_interval_badger (Badger Spawn Interval) int 30
+spawn_chance_badger (Badger Spawn Chance) int 300000
+spawn_active_object_count_badger (Badger Spawn Active Object Count) int 2
+spawn_min_height_badger (Badger Minimum Spawn Height) int 0
+spawn_max_height_badger (Badger Maximum Spawn Height) int 5000
+
+
+
+spawn_enabled_elephant (Elephants Spawn) bool true
+spawn_on_elephant (Elephants Spawn On) string default:dirt_with_dry_grass,default:desert_sand
+spawn_near_elephant (Elephants Spawn Near) string air
+spawn_min_light_elephant (Elephant Minimum Spawn Light) int 10
+spawn_max_light_elephant (Elephant Maximum Spawn Light) int 14
+spawn_interval_elephant (Elephant Spawn Interval) int 30
+spawn_chance_elephant (Elephant Spawn Chance) int 300000
+spawn_active_object_count_elephant (Elephant Spawn Active Object Count) int 2
+spawn_min_height_elephant (Elephant Minimum Spawn Height) int 0
+spawn_max_height_elephant (Elephant Maximum Spawn Height) int 5000
+
+
+spawn_enabled_fox (Foxs Spawn) bool true
+spawn_on_fox (Foxs Spawn On) string default:dirt_with_grass,default:dirt,default:dirt_with_coniferous_litter,default:dirt_with_snow
+spawn_near_fox (Foxs Spawn Near) string air
+spawn_min_light_fox (Fox Minimum Spawn Light) int 0
+spawn_max_light_fox (Fox Maximum Spawn Light) int 14
+spawn_interval_fox (Fox Spawn Interval) int 30
+spawn_chance_fox (Fox Spawn Chance) int 300000
+spawn_active_object_count_fox (Fox Spawn Active Object Count) int 2
+spawn_min_height_fox (Fox Minimum Spawn Height) int 0
+spawn_max_height_fox (Fox Maximum Spawn Height) int 5000
+
+
+spawn_enabled_hedgehog (Hedgehogs Spawn) bool true
+spawn_on_hedgehog (Hedgehogs Spawn On) string default:dirt_with_grass,default:dirt_with_coniferous_litter
+spawn_near_hedgehog (Hedgehogs Spawn Near) string air
+spawn_min_light_hedgehog (Hedgehog Minimum Spawn Light) int 0
+spawn_max_light_hedgehog (Hedgehog Maximum Spawn Light) int 14
+spawn_interval_hedgehog (Hedgehog Spawn Interval) int 30
+spawn_chance_hedgehog (Hedgehog Spawn Chance) int 300000
+spawn_active_object_count_hedgehog (Hedgehog Spawn Active Object Count) int 2
+spawn_min_height_hedgehog (Hedgehog Minimum Spawn Height) int 0
+spawn_max_height_hedgehog (Hedgehog Maximum Spawn Height) int 5000
+
+
+
+spawn_enabled_owl (Owls Spawn) bool true
+spawn_on_owl (Owls Spawn On) string group:leaves
+spawn_near_owl (Owls Spawn Near) string air
+spawn_min_light_owl (Owl Minimum Spawn Light) int 0
+spawn_max_light_owl (Owl Maximum Spawn Light) int 14
+spawn_interval_owl (Owl Spawn Interval) int 30
+spawn_chance_owl (Owl Spawn Chance) int 300000
+spawn_active_object_count_owl (Owl Spawn Active Object Count) int 2
+spawn_min_height_owl (Owl Minimum Spawn Height) int 0
+spawn_max_height_owl (Owl Maximum Spawn Height) int 5000
+
+
+spawn_enabled_tortoise (Tortoises Spawn) bool true
+spawn_on_tortoise (Tortoises Spawn On) string default:clay,group:sand
+spawn_near_tortoise (Tortoises Spawn Near) string air
+spawn_min_light_tortoise (Tortoise Minimum Spawn Light) int 10
+spawn_max_light_tortoise (Tortoise Maximum Spawn Light) int 14
+spawn_interval_tortoise (Tortoise Spawn Interval) int 30
+spawn_chance_tortoise (Tortoise Spawn Chance) int 300000
+spawn_active_object_count_tortoise (Tortoise Spawn Active Object Count) int 2
+spawn_min_height_tortoise (Tortoise Minimum Spawn Height) int 0
+spawn_max_height_tortoise (Tortoise Maximum Spawn Height) int 5000
+
+
+spawn_enabled_whale (Whales Spawn) bool true
+spawn_on_whale (Whales Spawn On) string default:water_source
+spawn_near_whale (Whales Spawn Near) string default:water_source
+spawn_min_light_whale (Whale Minimum Spawn Light) int 0
+spawn_max_light_whale (Whale Maximum Spawn Light) int 14
+spawn_interval_whale (Whale Spawn Interval) int 30
+spawn_chance_whale (Whale Spawn Chance) int 3000000
+spawn_active_object_count_whale (Whale Spawn Active Object Count) int 1
+spawn_min_height_whale (Whale Minimum Spawn Height) int -40
+spawn_max_height_whale (Whale Maximum Spawn Height) int 0

@@ -1,0 +1,10 @@
+spawn_enabled_better_rat (Better Rats Spawn) bool true
+spawn_on_better_rat (Better Rats Spawn On) string default:stone
+spawn_near_better_rat (Better Rats Spawn Near) string air
+spawn_min_light_better_rat (Better Rat Minimum Spawn Light) int 0
+spawn_max_light_better_rat (Better Rat Maximum Spawn Light) int 14
+spawn_interval_better_rat (Better Rat Spawn Interval) int 30
+spawn_chance_better_rat (Better Rat Spawn Chance) int 300000
+spawn_active_object_count_better_rat (Better Rat Spawn Active Object Count) int 2
+spawn_min_height_better_rat (Better Rat Minimum Spawn Height) int -25000
+spawn_max_height_better_rat (Better Rat Maximum Spawn Height) int 5000

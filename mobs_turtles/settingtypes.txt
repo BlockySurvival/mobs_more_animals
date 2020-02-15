@@ -1,0 +1,21 @@
+spawn_enabled_turtle (Turtles Spawn) bool true
+spawn_on_turtle (Turtles Spawn On) string default:dirt_with_grass,default:jungle_grass,default:sand,default:desert_sand
+spawn_near_turtle (Turtles Spawn Near) string default:dirt_with_grass,default:jungle_grass,default:sand,default:desert_sand,default:papyrus,default:cactus,dryplants:juncus,dryplants:reedmace
+spawn_min_light_turtle (Turtle Minimum Spawn Light) int 5
+spawn_max_light_turtle (Turtle Maximum Spawn Light) int 20
+spawn_interval_turtle (Turtle Spawn Interval) int 30
+spawn_chance_turtle (Turtle Spawn Chance) int 300000
+spawn_active_object_count_turtle (Turtle Spawn Active Object Count) int 1
+spawn_min_height_turtle (Turtle Minimum Spawn Height) int 1
+spawn_max_height_turtle (Turtle Maximum Spawn Height) int 5000
+
+spawn_enabled_seaturtle (Sea Turtles Spawn) bool true
+spawn_on_seaturtle (Sea Turtles Spawn On) string default:water_flowing,default:water_source
+spawn_near_seaturtle (Sea Turtles Spawn Near) string default:water_flowing,default:water_source,group:seaplants,seawrecks:woodship,seawrecks:uboot
+spawn_min_light_seaturtle (Sea Turtle Minimum Spawn Light) int 5
+spawn_max_light_seaturtle (Sea Turtle Maximum Spawn Light) int 20
+spawn_interval_seaturtle (Sea Turtle Spawn Interval) int 30
+spawn_chance_seaturtle (Sea Turtle Spawn Chance) int 300000
+spawn_active_object_count_seaturtle (Sea Turtle Spawn Active Object Count) int 1
+spawn_min_height_seaturtle (Sea Turtle Minimum Spawn Height) int -50
+spawn_max_height_seaturtle (Sea Turtle Maximum Spawn Height) int  0

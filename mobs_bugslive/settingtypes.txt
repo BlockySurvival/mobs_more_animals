@@ -1,0 +1,10 @@
+spawn_enabled_bug (Bugs Spawn) bool true
+spawn_on_bug (Bugs Spawn On) string default:dirt,default:dirt_with_grass,default:dirt_with_coniferous_litter,default:dirt_with_dry_grass,default:dirt_with_rainforest_litter,default:stone,ethereal:green_dirt_top
+spawn_near_bug (Bugs Spawn Near) string air,default:water_source,default:water_flowing,default:river_water_source,default:river_water_flowing
+spawn_min_light_bug (Bug Minimum Spawn Light) int 0
+spawn_max_light_bug (Bug Maximum Spawn Light) int 15
+spawn_interval_bug (Bug Spawn Interval) int 30
+spawn_chance_bug (Bug Spawn Chance) int 300000
+spawn_active_object_count_bug (Bug Spawn Active Object Count) int 2
+spawn_min_height_bug (Bug Minimum Spawn Height) int -25000
+spawn_max_height_bug (Bug Maximum Spawn Height) int 5000

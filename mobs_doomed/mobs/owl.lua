@@ -47,6 +47,18 @@ mobs:register_mob("mobs_doomed:owl", {
 
 mobs:register_egg("mobs_doomed:owl", "Owl", "default_tree.png", 1)
 
-if global_mobs_animal_pack_mobs_doomed.spawn_enabled_owl then
-mobs:spawn_specific("mobs_doomed:owl", global_mobs_animal_pack_mobs_doomed.spawn_on_owl, global_mobs_animal_pack_mobs_doomed.spawn_near_owl, global_mobs_animal_pack_mobs_doomed.spawn_min_light_owl, global_mobs_animal_pack_mobs_doomed.spawn_max_light_owl, global_mobs_animal_pack_mobs_doomed.spawn_interval_owl, global_mobs_animal_pack_mobs_doomed.spawn_chance_owl, global_mobs_animal_pack_mobs_doomed.spawn_active_object_count_owl, global_mobs_animal_pack_mobs_doomed.spawn_min_height_owl, global_mobs_animal_pack_mobs_doomed.spawn_max_height_owl, false)
+local l_spawn_enabled_owl = minetest.settings:get_bool("mobs_doomed.spawn_enabled_owl", true)
+if l_spawn_enabled_owl then
+
+local l_spawn_on_owl = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_on_owl")) or {"group:leaves"}
+local l_spawn_near_owl = mobs_doomed.CSVtoTable(minetest.settings:get("mobs_doomed.spawn_near_owl")) or {"air"}
+local l_spawn_min_light_owl = minetest.settings:get("mobs_doomed.spawn_min_light_owl") or 0
+local l_spawn_max_light_owl = minetest.settings:get("mobs_doomed.spawn_max_light_owl") or 14
+local l_spawn_interval_owl = minetest.settings:get("mobs_doomed.spawn_interval_owl") or 30
+local l_spawn_chance_owl = minetest.settings:get("mobs_doomed.spawn_chance_owl") or 300000
+local l_spawn_active_object_count_owl = minetest.settings:get("mobs_doomed.spawn_active_object_count_owl") or 2
+local l_spawn_min_height_owl = minetest.settings:get("mobs_doomed.spawn_min_height_owl") or 0
+local l_spawn_max_height_owl = minetest.settings:get("mobs_doomed.spawn_max_height_owl") or 5000
+
+mobs:spawn_specific("mobs_doomed:owl", l_spawn_on_owl, l_spawn_near_owl, l_spawn_min_light_owl, l_spawn_max_light_owl, l_spawn_interval_owl, l_spawn_chance_owl, l_spawn_active_object_count_owl, l_spawn_min_height_owl, l_spawn_max_height_owl, false)
 end

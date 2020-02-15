@@ -1,0 +1,32 @@
+spawn_enabled_gull (Gulls Spawn) bool true
+spawn_on_gull (Gulls Spawn On) string air
+spawn_near_gull (Gulls Spawn Near) string default:water_source,default:water_flowing
+spawn_min_light_gull (Gull Minimum Spawn Light) int 5
+spawn_max_light_gull (Gull Maximum Spawn Light) int 20
+spawn_interval_gull (Gull Spawn Interval) int 30
+spawn_chance_gull (Gull Spawn Chance) int 240000
+spawn_active_object_count_gull (Gull Spawn Active Object Count) int 1
+spawn_min_height_gull (Gull Minimum Spawn Height) int 0
+spawn_max_height_gull (Gull Maximum Spawn Height) int 5000
+
+spawn_enabled_bird_lg (Large Birds Spawn) bool true
+spawn_on_bird_lg (Large Birds Spawn On) string air
+spawn_near_bird_lg (Large Birds Spawn Near) string default:leaves,default:pine_needles,default:jungleleaves,default:cactus
+spawn_min_light_bird_lg (Large Bird Minimum Spawn Light) int 5
+spawn_max_light_bird_lg (Large Bird Maximum Spawn Light) int 20
+spawn_interval_bird_lg (Large Bird Spawn Interval) int 30
+spawn_chance_bird_lg (Large Bird Spawn Chance) int 360000
+spawn_active_object_count_bird_lg (Large Bird Spawn Active Object Count) int 1
+spawn_min_height_bird_lg (Large Bird Minimum Spawn Height) int 0
+spawn_max_height_bird_lg (Large Bird Maximum Spawn Height) int 5000
+
+spawn_enabled_bird_sm (Small Birds Spawn) bool true
+spawn_on_bird_sm (Small Birds Spawn On) string air
+spawn_near_bird_sm (Small Birds Spawn Near) string default:leaves,default:pine_needles,default:jungleleaves,default:cactus
+spawn_min_light_bird_sm (Small Bird Minimum Spawn Light) int 5
+spawn_max_light_bird_sm (Small Bird Maximum Spawn Light) int 20
+spawn_interval_bird_sm (Small Bird Spawn Interval) int 30
+spawn_chance_bird_sm (Small Bird Spawn Chance) int 360000
+spawn_active_object_count_bird_sm (Small Bird Spawn Active Object Count) int 1
+spawn_min_height_bird_sm (Small Bird Minimum Spawn Height) int 0
+spawn_max_height_bird_sm (Small Bird Maximum Spawn Height) int 5000

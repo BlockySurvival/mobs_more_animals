@@ -1,0 +1,10 @@
+spawn_enabled_wolf (Wolfs Spawn) bool true
+spawn_on_wolf (Wolfs Spawn On) string default:dirt_with_grass,default:dirt_with_snow,default:dirt_with_coniferous_litter,ethereal:green_dirt_top
+spawn_near_wolf (Wolfs Spawn Near) string 
+spawn_min_light_wolf (Wolf Minimum Spawn Light) int 10
+spawn_max_light_wolf (Wolf Maximum Spawn Light) int 15
+spawn_interval_wolf (Wolf Spawn Interval) int 30
+spawn_chance_wolf (Wolf Spawn Chance) int 300000
+spawn_active_object_count_wolf (Wolf Spawn Active Object Count) int 1
+spawn_min_height_wolf (Wolf Minimum Spawn Height) int -5
+spawn_max_height_wolf (Wolf Maximum Spawn Height) int 5000
