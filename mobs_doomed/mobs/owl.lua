@@ -20,9 +20,27 @@ mobs:register_mob("mobs_doomed:owl", {
     lava_damage = 2,
     light_damage = 0,
     view_range = 1,
-   	follow = {
-		"farming:seed_wheat",
-		"farming:seed_cotton",
+    follow = {
+        "farming:seed_wheat",
+        "farming:seed_cotton",
+        "mobs_bugslive:bug",
+        "mobs_butterfly:butterfly",
+        "butterflies:butterfly_red",
+        "butterflies:butterfly_violet",
+        "butterflies:butterfly_white",
+        "fireflies:firefly",
+                "mobs_animals:rat",
+                "mobs_better_rat:rat",
+                "mobs_animals:rat",
+                "mobs_animals:bee",
+                "mobs_animals:bunny",
+                "mobs_animals:chicken",
+                "mobs_animals:kitten",
+                "mobs_fish:tropica",
+                "mobs_fish:clownfish",
+                "mobs_bat:bat",
+                "mobs_birds:bird_sm",
+                "mobs_doomed:hedgehog",
 	},
     drops = {
         {name="mobs:meat_raw", chance=1, min=0, max=2},
@@ -34,12 +52,12 @@ mobs:register_mob("mobs_doomed:owl", {
         self.object:set_properties({
                             textures = {"mobs_doomed_owl_awake.png"},
                             mesh = "owl.b3d",
-                        })
+                    })
         elseif daytime >=6000 then
         self.object:set_properties({
                             textures = {"mobs_doomed_owl.png"},
                             mesh = "owl.b3d",
-                        })
+                    })
         end
     end,
     animation = {
@@ -52,7 +70,7 @@ mobs:register_mob("mobs_doomed:owl", {
         if mobs:feed_tame(self, clicker, 8, true, true) then
             return
         end
-		if mobs:protect(self, clicker) then return end
+        if mobs:protect(self, clicker) then return end
         mobs:capture_mob(self, clicker, 0, 5, 50, false, nil)
     end,
 })
