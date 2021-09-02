@@ -20,7 +20,10 @@ mobs:register_mob("mobs_doomed:owl", {
     lava_damage = 2,
     light_damage = 0,
     view_range = 1,
-    follow = {"farming:wheat"},
+   	follow = {
+		"farming:seed_wheat",
+		"farming:seed_cotton",
+	},
     drops = {
         {name="mobs:meat_raw", chance=1, min=0, max=2},
         {name="mobs:chicken_feather", chance=1, min=0, max=2}
@@ -49,7 +52,7 @@ mobs:register_mob("mobs_doomed:owl", {
         if mobs:feed_tame(self, clicker, 8, true, true) then
             return
         end
-
+		if mobs:protect(self, clicker) then return end
         mobs:capture_mob(self, clicker, 0, 5, 50, false, nil)
     end,
 })
