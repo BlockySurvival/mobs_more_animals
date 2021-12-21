@@ -20,28 +20,50 @@ mobs:register_mob("mobs_doomed:owl", {
     lava_damage = 2,
     light_damage = 0,
     view_range = 1,
-    follow = {
-        "farming:seed_wheat",
-        "farming:seed_cotton",
-        "mobs_bugslive:bug",
-        "mobs_butterfly:butterfly",
-        "butterflies:butterfly_red",
-        "butterflies:butterfly_violet",
-        "butterflies:butterfly_white",
-        "fireflies:firefly",
-                "mobs_animals:rat",
-                "mobs_better_rat:rat",
-                "mobs_animals:rat",
-                "mobs_animals:bee",
-                "mobs_animals:bunny",
-                "mobs_animals:chicken",
-                "mobs_animals:kitten",
-                "mobs_fish:tropica",
-                "mobs_fish:clownfish",
-                "mobs_bat:bat",
-                "mobs_birds:bird_sm",
-                "mobs_doomed:hedgehog",
-	},
+    local follow = {}
+        if minetest.get_modpath("farming") then
+	        table.insert(follow, "farming:seed_wheat")
+	        table.insert(follow, "farming:seed_cotton")
+            end
+        if minetest.get_modpath("mobs_bugslive") then
+	        table.insert(follow, "mobs_bugslive:bug")
+            end
+        if minetest.get_modpath("mobs_butterfly") then
+	        table.insert(follow, "mobs_butterfly:butterfly")
+            end
+        if minetest.get_modpath("butterflies") then
+	        table.insert(follow, "butterflies:butterfly_red")
+	        table.insert(follow, "butterflies:butterfly_violet")
+	        table.insert(follow, "butterflies:butterfly_white")
+            end
+        if minetest.get_modpath("fireflies") then
+	        table.insert(follow, "fireflies:firefly")
+            end
+        if minetest.get_modpath("mobs_animals") then
+	        table.insert(follow, "mobs_animals:rat")
+	        table.insert(follow, "mobs_animals:bee")
+	        table.insert(follow, "mobs_animals:bunny")
+	        table.insert(follow, "mobs_animals:chicken")
+            end
+        if minetest.get_modpath("mobs_fish") then
+	        table.insert(follow, "mobs_fish:tropical")
+	        table.insert(follow, "mobs_fish:clownfish")
+            end
+        if minetest.get_modpath("mobs_better_rat") then
+	        table.insert(follow, "mobs_better_rat:rat")
+            end
+        if minetest.get_modpath("mobs_bat") then
+	        table.insert(follow, "mobs_bat:bat")
+            end
+        if minetest.get_modpath("mobs_birds") then
+	        table.insert(follow, "mobs_birds:bird_sm")
+            end
+        if minetest.get_modpath("mobs_doomed") then
+	        table.insert(follow, "mobs_doomed:hedgehog")
+            end
+
+    follow = follow
+
     drops = {
         {name="mobs:meat_raw", chance=1, min=0, max=2},
         {name="mobs:chicken_feather", chance=1, min=0, max=2}
