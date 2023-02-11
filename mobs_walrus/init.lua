@@ -83,6 +83,9 @@ mobs:register_mob("mobs_walrus:walrus", {
 	replace_with = "air",
 	fly = false,
 	fly_in = "default:water_source",
+	on_rightclick = function(self, clicker)
+		mobs:feed_tame(self, clicker, 1, false, false)
+	end
 })
 
 if mod_config.walrus.spawn.enabled then
